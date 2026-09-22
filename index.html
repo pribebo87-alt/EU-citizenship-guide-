@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>European Passport — Citizenship Routes Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1C2541;
+    --paper: #F3EEE3;
+    --paper-2: #EAE3D2;
+    --bronze: #A9782F;
+    --bronze-dim: #C9A768;
+    --stamp-red: #8B2635;
+    --slate: #5B6472;
+    --line: #D8CFB8;
+    --card: #FBF9F3;
+    --white: #FFFFFF;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --ink: #EFE9DA;
+      --paper: #14181F;
+      --paper-2: #1B2029;
+      --bronze: #D8B26B;
+      --bronze-dim: #B3924E;
+      --stamp-red: #C7616F;
+      --slate: #9BA3B0;
+      --line: #323847;
+      --card: #1B2029;
+      --white: #232838;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #EFE9DA;
+    --paper: #14181F;
+    --paper-2: #1B2029;
+    --bronze: #D8B26B;
+    --bronze-dim: #B3924E;
+    --stamp-red: #C7616F;
+    --slate: #9BA3B0;
+    --line: #323847;
+    --card: #1B2029;
+    --white: #232838;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .app {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+
+  /* ---------- Header ---------- */
+  header.top {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    background: var(--paper);
+    z-index: 20;
+    padding: 14px 0 12px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .brand-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(22px, 4.2vw, 30px);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  .brand em {
+    font-style: italic;
+    color: var(--bronze);
+  }
+  .brand-sub {
+    font-size: 12.5px;
+    color: var(--slate);
+    margin-top: 4px;
+    max-width: 46ch;
+  }
+  .updated-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    color: var(--slate);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .search-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    width: 100%;
+  }
+  .search-box svg { flex-shrink: 0; opacity: 0.5; }
+  .search-box input::placeholder { color: var(--slate); }
+
+  .filters {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .chip {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--slate);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .chip.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  /* ---------- Layout ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 6px;
+  }
+  @media (min-width: 860px) {
+    .layout { grid-template-columns: 300px 1fr; align-items: start; }
+    .list-pane { position: sticky; top: 130px; max-height: calc(100vh - 150px); overflow-y: auto; }
+  }
+
+  /* ---------- List ---------- */
+  .region-group { margin-bottom: 18px; }
+  .region-title {
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    color: var(--bronze);
+    margin: 0 0 8px 2px;
+  }
+  .country-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+  .country-row.selected {
+    border-color: var(--bronze);
+    background: linear-gradient(0deg, var(--paper-2), var(--paper-2));
+    box-shadow: inset 3px 0 0 var(--bronze);
+  }
+  .country-row .flag { font-size: 18px; }
+  .country-row .name { flex: 1; font-weight: 500; }
+  .country-row .dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+  .dot.open { background: #4C8B5A; }
+  .dot.narrow { background: var(--bronze); }
+  .dot.closed { background: var(--stamp-red); }
+
+  .empty-list {
+    color: var(--slate);
+    font-size: 13.5px;
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+  /* ---------- Detail panel ---------- */
+  .detail {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 20px 26px;
+    min-height: 300px;
+  }
+  .detail-placeholder {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 20px; color: var(--slate);
+    gap: 10px; min-height: 320px;
+  }
+  .detail-placeholder .big-flag { font-size: 46px; opacity: .7; }
+
+  .d-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .d-head .flag { font-size: 40px; line-height: 1; }
+  .d-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 1.05;
+  }
+  .d-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .stamp {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 9px 3px;
+    border: 1.4px solid currentColor;
+    border-radius: 4px;
+    transform: rotate(-1deg);
+    display: inline-block;
+  }
+  .stamp.status-open { color: #4C8B5A; }
+  .stamp.status-narrow { color: var(--bronze); }
+  .stamp.status-closed { color: var(--stamp-red); }
+  .stamp.neutral { color: var(--slate); }
+
+  .d-section { margin-bottom: 20px; }
+  .d-section:last-child { margin-bottom: 0; }
+  .d-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--bronze);
+    margin-bottom: 6px;
+  }
+  .d-body {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .d-body b { font-weight: 600; }
+  .d-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media (min-width: 620px) {
+    .d-grid.two { grid-template-columns: 1fr 1fr; }
+  }
+  .route-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .route-card .r-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .route-card .r-body {
+    font-size: 13.5px;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+  .cost-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 14px;
+  }
+  .cost-line:last-child { border-bottom: none; }
+  .cost-line .k { color: var(--slate); }
+  .cost-line .v { font-family: 'Space Mono', monospace; font-size: 13px; text-align: right; }
+
+  .note-box {
+    background: rgba(139,38,53,0.07);
+    border: 1px solid rgba(139,38,53,0.25);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .note-box b { color: var(--stamp-red); }
+
+  footer.legal {
+    margin-top: 34px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
+
+  /* ---------- Premium ---------- */
+  .premium-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: linear-gradient(100deg, var(--ink), #2A3760);
+    color: var(--paper);
+    border-radius: 10px;
+    padding: 11px 14px;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  :root[data-theme="dark"] .premium-banner,
+  :root:not([data-theme="light"]) .premium-banner {
+    @media (prefers-color-scheme: dark) { background: linear-gradient(100deg, #2A3760, #3A4A80); }
+  }
+  .premium-banner b { color: var(--bronze-dim); }
+  .upgrade-btn {
+    background: var(--bronze);
+    color: #1C1400;
+    border: none;
+    font-weight: 700;
+    font-size: 12.5px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+  }
+  .premium-banner.unlocked { background: linear-gradient(100deg, #2C5233, #3E7248); }
+  .premium-banner.unlocked .upgrade-btn { background: transparent; color: var(--paper); border: 1px solid rgba(255,255,255,.4); font-weight: 500; }
+  .lang-btn {
+    background: transparent; border: none; padding: 5px 12px; font-size: 12px; font-weight: 600;
+    color: var(--slate); cursor: pointer; font-family: 'Inter', sans-serif;
+  }
+  .lang-btn.active { background: var(--ink); color: var(--paper); }
+
+  /* ---------- Ad slots (hidden for All-Access subscribers) ---------- */
+  .ad-slot {
+    background: var(--paper-2);
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    margin: 14px 0;
+    font-size: 12px;
+    color: var(--slate);
+    position: relative;
+  }
+  .ad-slot .ad-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    opacity: 0.6;
+  }
+  .ad-slot .ad-body { padding-top: 10px; }
+  .ad-slot .ad-remove {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--bronze);
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .lock-wrap { position: relative; }
+  .lock-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(243,238,227,0.4), var(--card) 78%);
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+    padding-bottom: 16px; border-radius: 10px;
+  }
+  :root:not([data-theme="light"]) .lock-overlay { @media (prefers-color-scheme: dark) { background: linear-gradient(180deg, rgba(20,24,31,0.4), var(--card) 78%); } }
+  :root[data-theme="dark"] .lock-overlay { background: linear-gradient(180deg, rgba(20,24,31,0.4), var(--card) 78%); }
+  .lock-overlay .lock-cta {
+    font-size: 12.5px; color: var(--slate); margin-bottom: 8px; text-align: center; padding: 0 14px;
+  }
+  .locked-blur { filter: blur(3px); user-select: none; pointer-events: none; min-height: 90px; }
+
+  .quiz-card {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 14px;
+  }
+  .quiz-q { margin-bottom: 14px; }
+  .quiz-q .q-label { font-size: 13.5px; font-weight: 600; margin-bottom: 7px; }
+  .quiz-opts { display: flex; gap: 7px; flex-wrap: wrap; }
+  .quiz-opt {
+    font-size: 12.5px; padding: 7px 11px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--card); cursor: pointer; font-family: 'Inter', sans-serif; color: var(--ink);
+  }
+  .quiz-opt.picked { border-color: var(--bronze); background: var(--paper-2); box-shadow: inset 0 0 0 1px var(--bronze); }
+  .quiz-result { margin-top: 8px; }
+  .rank-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .rank-row:last-child { border-bottom: none; }
+  .rank-num { font-family:'Space Mono',monospace; font-size: 12px; color: var(--bronze); width: 18px; }
+  .rank-name { flex: 1; font-size: 14px; font-weight: 500; }
+  .rank-why { font-size: 12px; color: var(--slate); }
+
+  .modal-back {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 100;
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  @media (min-width: 620px) { .modal-back { align-items: center; } }
+  .modal-card {
+    background: var(--card); border-radius: 16px 16px 0 0; padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+    max-width: 440px; width: 100%; max-height: 85vh; overflow-y: auto;
+  }
+  @media (min-width: 620px) { .modal-card { border-radius: 16px; } }
+  .modal-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; margin-bottom: 6px; }
+  .modal-sub { font-size: 13.5px; color: var(--slate); margin-bottom: 18px; line-height: 1.5; }
+  .plan-row {
+    display: flex; justify-content: space-between; align-items: center;
+    border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px;
+  }
+  .plan-row .p-name { font-weight: 600; font-size: 14.5px; }
+  .plan-row .p-price { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--bronze); }
+  .modal-btn {
+    width: 100%; background: var(--ink); color: var(--paper); border: none; border-radius: 10px;
+    padding: 13px; font-weight: 600; font-size: 14.5px; cursor: pointer; margin-top: 6px; font-family: 'Inter', sans-serif;
+  }
+  .modal-close { background: none; border: none; color: var(--slate); font-size: 13px; margin-top: 10px; width: 100%; cursor: pointer; }
+  .promo-row { display: flex; gap: 8px; margin-top: 14px; }
+  .promo-row input { flex:1; border: 1px solid var(--line); border-radius: 8px; padding: 10px; font-size: 13px; background: var(--paper); color: var(--ink); }
+  .promo-row button { border: 1px solid var(--line); background: var(--paper); border-radius: 8px; padding: 0 12px; font-size: 13px; cursor: pointer; color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="top">
+    <div class="brand-row">
+      <div>
+        <div class="brand" id="brandTitle">Every Door in <em>Europe</em></div>
+        <div class="brand-sub" id="brandSub">Every route to citizenship, country by country — descent, marriage, naturalisation, and investment — with current costs and the doors that stay shut.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+        <div class="updated-badge">DATA: SEP 2026</div>
+        <div style="display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;">
+          <button id="langEn" class="lang-btn active" onclick="setLang('en')">EN</button>
+          <button id="langHi" class="lang-btn" onclick="setLang('hi')">हिं</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-row">
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="search" type="text" placeholder="Search a country…" autocomplete="off">
+      </div>
+    </div>
+
+    <div class="filters" id="filters"></div>
+
+    <div class="premium-banner" id="premiumBanner">
+      <span id="premiumBannerText"><b>Premium</b> unlocks step-by-step checklists, the shortlist quiz, and PDF exports for every country.</span>
+      <button class="upgrade-btn" id="upgradeBtn">Upgrade</button>
+    </div>
+
+    <div id="adSlotTop"></div>
+  </header>
+
+  <div class="layout">
+    <div class="list-pane" id="listPane"></div>
+    <div class="detail" id="detail">
+      <div class="detail-placeholder">
+        <div class="big-flag">🛂</div>
+        <div id="placeholderText">Pick a country from the list to see every way in — and whether the door is actually open.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="adSlotMid"></div>
+
+  <div class="detail" id="quizPanel" style="margin-top:18px;">
+    <div class="d-title" style="font-size:22px;" id="quizTitle">🧭 Compare &amp; Shortlist</div>
+    <div class="d-body" style="color:var(--slate); font-size:13.5px; margin:6px 0 16px;" id="quizSub">Answer four questions and get a ranked shortlist of countries that fit your situation.</div>
+    <div id="quizBody"></div>
+  </div>
+
+  <div class="detail" style="margin-top:18px;">
+    <div class="d-title" style="font-size:20px;" id="changelogTitle">📋 Recently changed</div>
+    <div class="route-card" style="margin-top:12px;"><div class="cost-line"><span class="k" id="chg1">Malta's citizenship-by-investment scheme ruled illegal by the EU Court of Justice and formally closed</span><span class="v">Apr–Jul 2025</span></div></div>
+    <div class="route-card" style="margin-top:8px;"><div class="cost-line"><span class="k" id="chg2">Spain's Golden Visa fully abolished</span><span class="v">Apr 2025</span></div></div>
+    <div class="route-card" style="margin-top:8px;"><div class="cost-line"><span class="k" id="chg3">Germany cut standard naturalisation to 5 years and now broadly allows dual citizenship</span><span class="v">Jun 2024</span></div></div>
+    <div class="route-card" style="margin-top:8px;"><div class="cost-line"><span class="k" id="chg4">Italy sharply restricted jure sanguinis (descent) claims beyond grandparents</span><span class="v">Mar 2025</span></div></div>
+    <div class="route-card" style="margin-top:8px;"><div class="cost-line"><span class="k" id="chg5">Latvia's investment-residency routes set to close</span><span class="v">Jan 2027</span></div></div>
+  </div>
+
+  <footer class="legal">
+    Compiled from public national-authority sources and investment-migration trackers as of September 2026. Naturalisation timelines, language requirements, dual-citizenship rules, and investment programmes change often — several closed or changed within the last 18 months (Spain's golden visa, Malta's citizenship-by-investment, Italy's descent rules). Treat this as a starting map, not legal advice, and confirm current rules with the relevant country's immigration authority or a qualified immigration lawyer before acting. "Cost" figures are approximate government/investment minimums in EUR and exclude legal fees, translations, and living costs during residency.
+  </footer>
+</div>
+
+<div id="modalRoot"></div>
+
+<script>
+const REGION_ORDER = ["EU member states", "EEA / Schengen (non-EU)", "Microstates", "Western Balkans", "Eastern Europe & Caucasus fringe"];
+
+// ============================================================
+// AFFILIATE LINKS — replace these placeholder URLs with your real
+// affiliate/referral links once you sign up with each service.
+// Good starting points: apostille/document-legalisation services,
+// certified-translation platforms, and immigration-lawyer directories
+// (many pay $20–$100+ per qualified referral).
+// ============================================================
+const AFFILIATE_LINKS = [
+  { icon: "📄", name: "Document Apostille Service", desc: "Get birth/marriage certificates legalised for use abroad.", url: "https://example.com/affiliate/apostille" },
+  { icon: "🌐", name: "Certified Translation", desc: "Sworn translations accepted by immigration authorities.", url: "https://example.com/affiliate/translation" },
+  { icon: "⚖️", name: "Immigration Lawyer Directory", desc: "Find a licensed immigration lawyer in your target country.", url: "https://example.com/affiliate/lawyers" },
+];
+
+// ============================================================
+// ADS — shown to free/pack4 users, hidden for All-Access subscribers.
+// AD_CLIENT_ID: your Google AdSense publisher ID (looks like "ca-pub-XXXXXXXXXXXXXXXX").
+// Leave null to show a clearly-labelled placeholder instead (safe default
+// for testing). This only works once you self-host the app — AdSense's
+// script cannot load on the claude.ai preview link.
+// ============================================================
+const AD_CLIENT_ID = null; // e.g. "ca-pub-1234567890123456"
+let adsScriptLoaded = false;
+
+function adsShouldShow() { return !isFullyUnlocked(); }
+
+function loadAdsScriptOnce() {
+  if (adsScriptLoaded || !AD_CLIENT_ID) return;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CLIENT_ID}`;
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+  adsScriptLoaded = true;
+}
+
+function adSlotHtml(slotId) {
+  if (AD_CLIENT_ID) {
+    // Real AdSense unit. Create matching ad units in your AdSense dashboard
+    // and replace data-ad-slot below with the real slot ID for each placement.
+    return `<div class="ad-slot" style="border:none;background:none;padding:0;">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="${AD_CLIENT_ID}" data-ad-slot="REPLACE_WITH_SLOT_ID" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>`;
+  }
+  return `<div class="ad-slot">
+    <span class="ad-label">${LANG==='hi' ? 'विज्ञापन' : 'Advertisement'}</span>
+    <div class="ad-body">${LANG==='hi' ? 'यहां विज्ञापन दिखेगा (डेमो प्लेसहोल्डर)।' : 'Your ad would render here (demo placeholder).'}<br>
+      <button class="ad-remove" onclick="openModal()">${LANG==='hi' ? 'विज्ञापन हटाएं — All-Access लें' : 'Remove ads — get All-Access'}</button>
+    </div>
+  </div>`;
+}
+
+function refreshAds() {
+  const show = adsShouldShow();
+  ['adSlotTop','adSlotMid'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = show ? adSlotHtml(id) : '';
+  });
+  if (show) loadAdsScriptOnce();
+  // Re-scan for any newly inserted <ins class="adsbygoogle"> units (e.g. inside the detail panel)
+  if (show && AD_CLIENT_ID && window.adsbygoogle) {
+    document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])').forEach(() => {
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+    });
+  }
+}
+
+// High-ticket Golden Visa lead capture — separate, higher-value product
+// from the $3/$5 tiers above. Wire this to its own Stripe Price (~$79)
+// the same way as the pack4/all tiers, or route it to a booking calendar
+// (Calendly) if you'd rather sell it as a consultation call.
+function startGoldenVisaLead(countryName) {
+  document.getElementById('modalRoot').innerHTML = `
+    <div class="modal-back" onclick="if(event.target===this) closeModal()">
+      <div class="modal-card">
+        <div class="modal-title">Golden Visa lawyer match — ${countryName}</div>
+        <div class="modal-sub">Leave your email and we'll connect you with a vetted immigration lawyer specialising in ${countryName}'s investment programme. $79 one-time matching fee.</div>
+        <div class="promo-row"><input id="gvEmail" type="email" placeholder="you@email.com"></div>
+        <button class="modal-btn" style="background:var(--bronze);color:#1C1400;margin-top:10px;" onclick="submitGoldenVisaLead('${countryName.replace(/'/g,"\\'")}')">Continue to payment</button>
+        <button class="modal-close" onclick="closeModal()">Not now</button>
+        <div style="font-size:11px;color:var(--slate);margin-top:10px;">Demo — wire this button to a dedicated Stripe Price or a Calendly booking link once you're ready to sell this.</div>
+      </div>
+    </div>`;
+}
+function submitGoldenVisaLead(countryName) {
+  const email = document.getElementById('gvEmail').value;
+  if (!email || !email.includes('@')) { alert('Enter a valid email first.'); return; }
+  try {
+    const leads = JSON.parse(localStorage.getItem('golden_visa_leads') || '[]');
+    leads.push({ email, countryName, date: new Date().toISOString() });
+    localStorage.setItem('golden_visa_leads', JSON.stringify(leads));
+  } catch(e) {}
+  closeModal();
+  alert('Saved — in the live version this would continue to checkout for the $79 matching fee.');
+}
+
+// ============================================================
+// EMAIL CAPTURE — a low-friction lead magnet shown once per visitor,
+// before any paywall. Captures the email client-side for now; wire
+// EMAIL_CAPTURE_ENDPOINT to a real list (Mailchimp/ConvertKit/etc. all
+// have simple API endpoints for this) to actually collect leads.
+// ============================================================
+const EMAIL_CAPTURE_ENDPOINT = null; // e.g. your Mailchimp/ConvertKit submit URL
+
+function maybeShowEmailCapture() {
+  try {
+    if (localStorage.getItem('email_capture_seen')) return;
+  } catch(e) { return; }
+  document.getElementById('modalRoot').innerHTML = `
+    <div class="modal-back" onclick="if(event.target===this) dismissEmailCapture()">
+      <div class="modal-card">
+        <div class="modal-title">Get your shortlist by email</div>
+        <div class="modal-sub">Take the quiz later, or drop your email now and we'll send a free starter comparison of 3 countries that usually fit most situations.</div>
+        <div class="promo-row"><input id="leadEmail" type="email" placeholder="you@email.com"></div>
+        <button class="modal-btn" onclick="submitEmailCapture()">Send it</button>
+        <button class="modal-close" onclick="dismissEmailCapture()">Maybe later</button>
+      </div>
+    </div>`;
+}
+function submitEmailCapture() {
+  const email = document.getElementById('leadEmail').value;
+  if (!email || !email.includes('@')) { alert('Enter a valid email first.'); return; }
+  if (EMAIL_CAPTURE_ENDPOINT) {
+    fetch(EMAIL_CAPTURE_ENDPOINT, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ email }) }).catch(()=>{});
+  } else {
+    try {
+      const leads = JSON.parse(localStorage.getItem('email_leads') || '[]');
+      leads.push({ email, date: new Date().toISOString() });
+      localStorage.setItem('email_leads', JSON.stringify(leads));
+    } catch(e) {}
+  }
+  dismissEmailCapture();
+}
+function dismissEmailCapture() {
+  try { localStorage.setItem('email_capture_seen','1'); } catch(e) {}
+  closeModal();
+}
+setTimeout(maybeShowEmailCapture, 4000); // show after a few seconds of browsing, not instantly
+
+const DATA = [
+// ---------------- EU MEMBER STATES ----------------
+{ name:"Austria", flag:"🇦🇹", region:"EU member states", status:"closed", dual:"No — must renounce prior citizenship except in narrow cases (refugees, where renunciation is impossible, or it would cause exceptional hardship).",
+  descent:"Automatic for children of an Austrian parent. Since 2020, descendants of victims of Nazi persecution can claim citizenship with no generation limit.",
+  marriage:"No shortcut to naturalisation — spouses of Austrians still need 6 years' residence (vs 10 standard) plus all normal integration requirements.",
+  naturalisation:"10 years' legal residence (down to 6 for exceptional integration, EU/EEA spouses, or recognised achievements). Requires B2 German, a Staatsbürgerschaftsprüfung (citizenship exam), self-sufficient income and no criminal record.",
+  investment:"No investment route exists. Austria's old \"citizenship for extraordinary merit\" clause is a discretionary, government-only exception — not a purchasable programme.",
+  cost:[["Naturalisation application fee","€700 – €1,500 (varies by state)"],["Investment route","Not available"]],
+  note:"One of the strictest naturalisation regimes in the EU — long residence, near-total renunciation, and no investment shortcut." },
+
+{ name:"Belgium", flag:"🇧🇪", region:"EU member states", status:"open", dual:"Yes, allowed since 2008.",
+  descent:"Automatic if a parent is Belgian at birth (or by declaration up to age 18).",
+  marriage:"No separate fast track, but legal cohabitation counts toward the residence clock.",
+  naturalisation:"5 years' legal residence lets you file a \"Declaration of Nationality\" (near-automatic if requirements are met); full discretionary naturalisation is possible after 5 years for those who can't use the declaration route. Requires proof of integration (language, work/study, or social participation) and no serious criminal record.",
+  investment:"No investment-to-citizenship route.",
+  cost:[["Registration fee","€150"],["Investment route","Not available"]],
+  note:"One of the more accessible Western European routes — 5 years, no exam-heavy language bar comparable to Austria or Denmark." },
+
+{ name:"Bulgaria", flag:"🇧🇬", region:"EU member states", status:"narrow", dual:"Yes, allowed.",
+  descent:"Automatic for children of a Bulgarian parent; simplified route for people of Bulgarian ethnic origin (no residency required in many cases).",
+  marriage:"3 years of marriage to a Bulgarian citizen reduces ordinary residence requirement to 3 years (from 5).",
+  naturalisation:"5 years' continuous legal residence (3 with a Bulgarian spouse), Bulgarian language proficiency, and a legal income source.",
+  investment:"The fast-track investment-citizenship option (~€1M+ government bonds) was abolished in 2022 after EU pressure. A residence-by-investment route (~€512,000, immediate permanent residency) still exists but leads to citizenship only via the standard 5-year naturalisation clock, not a shortcut.",
+  cost:[["Naturalisation fee","~€350"],["Permanent-residency investment (no CBI shortcut)","from €512,000"]],
+  note:"Direct \"buy a passport\" route is gone — what's left is investment residency that still requires normal years to reach citizenship." },
+
+{ name:"Croatia", flag:"🇭🇷", region:"EU member states", status:"open", dual:"Yes, allowed.",
+  descent:"Broad diaspora law: anyone who can document Croatian ethnic origin and a connection to the culture/language can naturalise without residing in Croatia at all.",
+  marriage:"Spouses of Croatian citizens can apply after the marriage plus meeting a shortened residency/renunciation standard, without the full 8-year requirement.",
+  naturalisation:"8 years' continuous residence, Croatian language and Latin script, and knowledge of Croatian culture and social order.",
+  investment:"No investment-to-citizenship programme.",
+  cost:[["Naturalisation fee","modest, ~€60–150"],["Investment route","Not available"]],
+  note:"The diaspora/ethnicity route is unusually generous and used heavily by descendants abroad (e.g. in the Americas and Australia)." },
+
+{ name:"Cyprus", flag:"🇨🇾", region:"EU member states", status:"narrow", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Cypriot parent.",
+  marriage:"Reduces the ordinary residence requirement — around 4 years combined marriage + residence instead of 7.",
+  naturalisation:"7 years' legal residence (the final year continuous), Greek language ability, and integration into the community.",
+  investment:"Citizenship-by-investment was shut down entirely in 2020 after a corruption scandal. A residence-by-investment route (~€300,000 in property) remains open and grants fast permanent residency, but citizenship still requires the standard naturalisation years afterward.",
+  cost:[["Naturalisation fee","~€500"],["Permanent-residency investment","from €300,000"]],
+  note:"Notorious past golden-passport scheme is fully closed; don't confuse the still-open residency-by-investment option with a citizenship shortcut." },
+
+{ name:"Czechia", flag:"🇨🇿", region:"EU member states", status:"open", dual:"Yes, allowed since 2014.",
+  descent:"Automatic for children of a Czech citizen parent.",
+  marriage:"No dedicated fast track, but time married to a Czech citizen while resident counts toward integration assessment.",
+  naturalisation:"5 years' continuous permanent residence, B1 Czech language, a Czech realities/civics test, clean criminal record and no debts to the state.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","~CZK 2,000 (~€80)"],["Investment route","Not available"]],
+  note:"Straightforward, moderate-length route by regional standards." },
+
+{ name:"Denmark", flag:"🇩🇰", region:"EU member states", status:"narrow", dual:"Yes, allowed since 2015.",
+  descent:"Automatic for a child with a Danish parent.",
+  marriage:"No formal shortcut — Denmark treats naturalisation uniformly regardless of marital status, though total lawful residence in Denmark (incl. as a spouse) counts.",
+  naturalisation:"Unusually, Danish citizenship is granted by an Act of Parliament, not an administrative decision. Typically requires ~9 years' residence, a demanding Indfødsretsprøve (citizenship test), high-level Danish (module 3, or Prøve i Dansk 3), self-support (limited public benefits in preceding years), and no significant criminal record.",
+  investment:"No investment route.",
+  cost:[["Application fee","~DKK 4,000 (~€535)"],["Investment route","Not available"]],
+  note:"The parliamentary-bill mechanism and strict self-sufficiency rule make this one of the most demanding processes in the EU." },
+
+{ name:"Estonia", flag:"🇪🇪", region:"EU member states", status:"closed", dual:"No — must renounce other citizenship (with narrow exceptions).",
+  descent:"Automatic only if a parent is an Estonian citizen; Estonia does not offer a broad diaspora/ethnicity route.",
+  marriage:"No fast track for spouses.",
+  naturalisation:"8 years' legal residence (5 immediately preceding application), B1 Estonian, a constitution and citizenship-act exam, and a legal income.",
+  investment:"No investment route.",
+  cost:[["Application fee","~€100"],["Investment route","Not available"]],
+  note:"Renunciation requirement plus a real language bar make this a genuinely closed door for people unwilling to relinquish their first citizenship." },
+
+{ name:"Finland", flag:"🇫🇮", region:"EU member states", status:"open", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Finnish parent.",
+  marriage:"4 years of marriage/cohabitation with continuous joint residence reduces the standard requirement.",
+  naturalisation:"5 years' continuous residence (4 for those married to a Finn), satisfactory Finnish or Swedish language skills, and no unresolved debts to the state or serious criminal record.",
+  investment:"No investment route.",
+  cost:[["Application fee","~€430 (online) / €640 (paper)"],["Investment route","Not available"]],
+  note:"Comparable to the Nordic norm — moderate years, real but achievable language bar." },
+
+{ name:"France", flag:"🇫🇷", region:"EU member states", status:"open", dual:"Yes, allowed.",
+  descent:"Droit du sang: automatic for a child with a French parent; also droit du sol grants citizenship to children born in France to foreign parents once they turn 18 (or earlier under conditions), if raised there.",
+  marriage:"4 years of marriage (5 if the couple hasn't lived in France for at least 3 continuous years) plus B1 French replaces the 5-year residence route.",
+  naturalisation:"5 years' habitual residence (waived or reduced for graduates of French higher education, exceptional contributors, or refugees), B1 oral French, and assimilation into French society and values.",
+  investment:"No formal citizenship-by-investment scheme; the \"Passeport Talent\" investor visa grants residency only, still subject to the standard naturalisation clock.",
+  cost:[["Application fee","€55 (stamp duty)"],["Investment route","Not available (residency-only investor visa exists)"]],
+  note:"One of the more workable major-EU routes, especially for graduates of French universities (residency requirement can drop to 2 years)." },
+
+{ name:"Germany", flag:"🇩🇪", region:"EU member states", status:"open", dual:"Yes — Germany's 2024 reform now permits dual citizenship broadly, ending the old renunciation requirement for most applicants.",
+  descent:"Automatic for a child with a German parent.",
+  marriage:"3 years of marriage to a German citizen (with 2 years' residence) can shorten the path versus the 5-year standard.",
+  naturalisation:"Reduced by the 2024 reform to 5 years' legal residence (3 years for exceptional integration — C1 German, strong civic engagement, or top academic/professional achievement), a Einbürgerungstest, and self-sufficiency.",
+  investment:"No investment route.",
+  cost:[["Application fee","€255 (adults)"],["Investment route","Not available"]],
+  note:"The 2024 reform (shorter residence + dual citizenship) makes Germany one of the most improved EU routes in the last two years." },
+
+{ name:"Greece", flag:"🇬🇷", region:"EU member states", status:"narrow", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Greek parent; simplified process for people of Greek ethnic origin from the diaspora.",
+  marriage:"3 years of marriage plus residence can shorten the effective path.",
+  naturalisation:"7 years' legal residence, a naturalisation exam covering Greek history, geography and civics, and Greek language proficiency.",
+  investment:"Golden Visa still active: real-estate investment from €250,000 (up to €800,000 in high-demand zones like central Athens/Mykonos/Santorini) grants renewable residency. It does not grant citizenship directly — the standard 7-year naturalisation clock still applies afterward.",
+  cost:[["Naturalisation fee","~€700"],["Golden Visa (residency only)","from €250,000 real estate"]],
+  note:"A genuinely popular Golden Visa, but it buys residency and eventual eligibility, not a passport itself." },
+
+{ name:"Hungary", flag:"🇭🇺", region:"EU member states", status:"narrow", dual:"Yes, allowed.",
+  descent:"Very broad simplified naturalisation for anyone who can prove Hungarian ancestry and demonstrates basic Hungarian language — no residency in Hungary required at all. This is one of Europe's most generous diaspora programmes.",
+  marriage:"No dedicated shortcut beyond standard residence rules.",
+  naturalisation:"8 years' continuous residence for ordinary applicants (3 years for spouses of Hungarian citizens or parents of a Hungarian-citizen child), Hungarian language test, and a constitutional-studies exam.",
+  investment:"The Hungary Guest Investor programme (from ~€250,000 into a regulated real-estate fund, or €1,000,000 in real estate directly) grants a 10-year renewable residence permit, not citizenship — naturalisation still needs the standard years of residence.",
+  cost:[["Naturalisation fee","~€110"],["Guest Investor residency","from €250,000"]],
+  note:"The ancestry route is exceptionally easy relative to most of Europe; the investor route is residency-only." },
+
+{ name:"Ireland", flag:"🇮🇪", region:"EU member states", status:"open", dual:"Yes, allowed.",
+  descent:"Unusually generous: anyone with an Irish-born grandparent can register on the Foreign Births Register and receive citizenship directly — and once registered, that person's own children can also qualify, extending the chain indefinitely as long as each generation registers.",
+  marriage:"3 years of marriage/civil partnership (living together) to an Irish citizen reduces \"reckonable residence\" needed from 5 years to 3.",
+  naturalisation:"5 years' reckonable residence within the last 9 years (including the year before applying), good character, and intent to remain in Ireland. No language test.",
+  investment:"The Immigrant Investor Programme (from €1,000,000) was closed in February 2023 and is not being replaced.",
+  cost:[["Naturalisation fee (adult)","€175 application + €950 certificate"],["Investment route","Closed"]],
+  note:"The grandparent rule is one of the most generous ancestry routes anywhere in Europe and needs no Irish residency at all." },
+
+{ name:"Italy", flag:"🇮🇹", region:"EU member states", status:"narrow", dual:"Yes, allowed.",
+  descent:"Jure sanguinis was historically unlimited by generation, making Italy famous for distant-ancestor claims. A March 2025 reform sharply restricted this: descent claims are now generally limited to parents or grandparents born in Italy, closing the door on many great-grandparent-based claims filed after the reform (court challenges are ongoing).",
+  marriage:"2 years of marriage while resident in Italy (3 years if living abroad, halved if the couple has children) instead of the standard 10-year wait.",
+  naturalisation:"10 years' legal residence for non-EU nationals (4 years for EU citizens, 5 for stateless persons/refugees), B1 Italian, and sufficient income.",
+  investment:"Investor Visa (from €250,000 in an innovative startup, up to €2,000,000 in government bonds) grants a 2-year renewable residence permit — not citizenship. Naturalisation afterward still follows the standard 10-year clock.",
+  cost:[["Naturalisation fee","~€250"],["Investor Visa (residency only)","from €250,000"]],
+  note:"The 2025 jure sanguinis reform is the single biggest recent change in European ancestry-citizenship law — verify current eligibility carefully if relying on a great-grandparent." },
+
+{ name:"Latvia", flag:"🇱🇻", region:"EU member states", status:"closed", dual:"Restricted — allowed only with a specific list of countries (mostly EU/NATO/EFTA states); not universal.",
+  descent:"Limited mainly to those who can prove pre-1940 Latvian citizenship in their family line — a legacy of the Soviet-era \"non-citizen\" status still affecting many ethnic Russians born in Latvia.",
+  marriage:"No dedicated shortcut.",
+  naturalisation:"5 years' permanent residence, a demanding Latvian language exam, a history/constitution/anthem test, and renunciation of other citizenship unless from the approved list.",
+  investment:"Golden Visa still runs (from €50,000 business investment) but Parliament voted in June 2026 to abolish most investment-residency routes from 1 January 2027 — treat this as closing imminently.",
+  cost:[["Naturalisation fee","~€71"],["Golden Visa (residency only, closing 2027)","from €50,000"]],
+  note:"Restricted dual citizenship and a strict language/history exam make this one of the tighter Baltic routes; the investment door is actively being shut." },
+
+{ name:"Lithuania", flag:"🇱🇹", region:"EU member states", status:"narrow", dual:"Limited — generally allowed only for those regaining citizenship by descent from pre-1940 Lithuanian citizens, not for ordinary naturalised citizens.",
+  descent:"Restoration of citizenship is available with no residency requirement for descendants of people who were Lithuanian citizens before 1940 (Soviet annexation) — a major diaspora route, especially used in the Americas.",
+  marriage:"No dedicated fast track.",
+  naturalisation:"10 years' permanent residence for ordinary applicants, Lithuanian language, a constitution exam, and a legal source of income. Simplified naturalisation exists for ethnic Lithuanians without the full residency requirement.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","~€100"],["Investment route","Not available"]],
+  note:"Ordinary naturalisation is slow (10 years); the descent/restoration route is comparatively fast for those with pre-Soviet family ties." },
+
+{ name:"Luxembourg", flag:"🇱🇺", region:"EU member states", status:"open", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Luxembourgish parent.",
+  marriage:"No dedicated fast track, but joint residence counts toward integration.",
+  naturalisation:"5 years' legal residence, Luxembourgish language at A2 speaking / B1 listening, and a mandatory civics/integration course covering national institutions.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","~€68"],["Investment route","Not available"]],
+  note:"Short residency requirement, but the Luxembourgish (not French/German) language test surprises many applicants." },
+
+{ name:"Malta", flag:"🇲🇹", region:"EU member states", status:"closed", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Maltese parent; registration route available for people with a Maltese-born grandparent in some cases.",
+  marriage:"Reduces the ordinary naturalisation timeline for spouses of Maltese citizens.",
+  naturalisation:"Now the main route since the investment scheme's closure — reported timelines run 7 to 18 years depending on the specific ordinary/naturalisation pathway used, plus a genuine-links test, clean record, and English/Maltese proficiency.",
+  investment:"Malta's Citizenship by Investment scheme (formerly ~€600,000–€750,000) was ruled illegal by the EU Court of Justice on 29 April 2025 and formally closed in July 2025 — it was the EU's last direct \"buy a passport\" programme, and none remain anywhere in the EU. The Malta Permanent Residence Programme (from €375,000 property, or €14,000/year rent + €2,000 donation) still grants residency only, feeding into the long ordinary-naturalisation timeline above.",
+  cost:[["Naturalisation fee","varies by route"],["Former Citizenship-by-Investment","Closed (2025)"],["Permanent-residency investment","from €375,000 property"]],
+  note:"Malta's closure ended the last citizenship-for-sale programme in the EU — no EU country currently sells passports directly." },
+
+{ name:"Netherlands", flag:"🇳🇱", region:"EU member states", status:"closed", dual:"No — must renounce prior citizenship in most cases (limited exceptions for spouses of Dutch citizens, refugees, and a few other categories).",
+  descent:"Automatic for a child with a Dutch parent.",
+  marriage:"3 years of marriage/registered partnership plus continuous residence reduces the requirement from 5 years to 3.",
+  naturalisation:"5 years' continuous legal residence (3 if married/partnered to a Dutch citizen), an integration exam (inburgeringsexamen) covering Dutch language and society, and no criminal record.",
+  investment:"No investment-to-citizenship route; the former self-employed/investor residence permits do not shortcut naturalisation.",
+  cost:[["Naturalisation fee","~€960 (single) / ~€1,275 (family)"],["Investment route","Not available"]],
+  note:"The renunciation requirement is the main obstacle — even a relatively short residency period doesn't help if giving up your first passport isn't an option." },
+
+{ name:"Poland", flag:"🇵🇱", region:"EU member states", status:"open", dual:"Yes, allowed (Poland dropped its consent requirement in 2012).",
+  descent:"One of the most generous ancestry routes in Europe: confirmation of Polish citizenship is available with no generation limit, as long as an unbroken chain of Polish citizenship can be documented from an ancestor forward (commonly used by descendants of pre-WWII emigrants).",
+  marriage:"No dedicated shortcut beyond standard residency, but marriage to a Polish citizen supports permanent-residence applications that later lead to naturalisation.",
+  naturalisation:"Discretionary presidential grant possible at any time for those who show a genuine connection; the standard route for permanent residents is 3 years of permanent residence/EU long-term residence status plus a legal source of income and a place to live.",
+  investment:"No investment route.",
+  cost:[["Confirmation-of-citizenship fee","~€40 (varies)"],["Investment route","Not available"]],
+  note:"The confirmation-of-descent route (not technically \"naturalisation\") is the fastest and most heavily used path for the large Polish diaspora." },
+
+{ name:"Portugal", flag:"🇵🇹", region:"EU member states", status:"narrow", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Portuguese parent; the well-known Sephardic Jewish ancestry programme was closed to new applicants in 2022.",
+  marriage:"3 years of marriage/de facto union to a Portuguese citizen replaces the standard residency requirement.",
+  naturalisation:"5 years' legal residence and only A2-level Portuguese — one of the lowest language bars in the EU. A 2025 legislative change extended certain residency-counting rules for some Golden Visa/investor cases, so confirm current timelines before relying on older 5-year estimates.",
+  investment:"Golden Visa remains open via fund investment (from €500,000; real estate was removed as a qualifying route in 2023) or €250,000 into arts/cultural heritage support. It grants residency (as little as 7 days/year physical presence) which can lead to naturalisation on the standard residency timeline, not immediately.",
+  cost:[["Naturalisation fee","~€250"],["Golden Visa (fund route)","from €500,000"],["Golden Visa (cultural donation route)","from €250,000"]],
+  note:"Still one of the most popular EU routes thanks to the low language bar and minimal physical-presence requirement for investors — but recent law changes are actively shifting the timeline, so check the current rule before planning around 5 years." },
+
+{ name:"Romania", flag:"🇷🇴", region:"EU member states", status:"open", dual:"Yes, allowed.",
+  descent:"Very generous \"reacquisition\" route for former Romanian citizens and their descendants (heavily used by Moldovans, given Romania's EU membership) — often requires no residency in Romania at all.",
+  marriage:"4 years of marriage to a Romanian citizen reduces the standard 8-year residency requirement.",
+  naturalisation:"8 years' legal residence (5 for refugees), Romanian language, knowledge of the constitution and culture, and a legal source of income.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","modest, government-set"],["Investment route","Not available"]],
+  note:"The reacquisition-by-descent route is the fastest path to an EU passport for much of Moldova's population." },
+
+{ name:"Slovakia", flag:"🇸🇰", region:"EU member states", status:"closed", dual:"Restricted — generally must renounce other citizenship unless it was acquired by birth or through an EU/OECD-member state (post-2022 reform relaxed this partially).",
+  descent:"Automatic for a child with a Slovak parent.",
+  marriage:"No dedicated fast track.",
+  naturalisation:"8 years' permanent residence, a Slovak language test, and a clean criminal record; exceptions exist for those with a documented Slovak ethnic background.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","~€700 (can be waived in some cases)"],["Investment route","Not available"]],
+  note:"Among the pricier and more renunciation-strict EU processes, despite a moderate 8-year residency bar." },
+
+{ name:"Slovenia", flag:"🇸🇮", region:"EU member states", status:"closed", dual:"Restricted — renunciation generally required unless a bilateral reciprocity agreement applies or renunciation is impossible.",
+  descent:"Automatic for a child with a Slovenian parent.",
+  marriage:"2 years of marriage to a Slovenian citizen plus residence can shorten the path versus the 10-year standard.",
+  naturalisation:"10 years' legal residence (5 continuous immediately before applying), Slovenian language proficiency, and integration into Slovenian society.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","~€500"],["Investment route","Not available"]],
+  note:"Long residency plus a real renunciation bar makes this one of the harder standard EU routes." },
+
+{ name:"Spain", flag:"🇪🇸", region:"EU member states", status:"closed", dual:"No, in general — Spain requires renunciation of prior citizenship except for citizens of Ibero-American countries, Andorra, the Philippines, Equatorial Guinea, Portugal, and Sephardic Jews, who may hold both.",
+  descent:"Automatic for a child with a Spanish parent.",
+  marriage:"1 year of marriage to a Spanish citizen (while resident in Spain) replaces the standard residency requirement.",
+  naturalisation:"10 years' legal residence for most nationalities — but reduced to 2 years for nationals of Ibero-American countries, Andorra, the Philippines, Equatorial Guinea, Portugal, or people of Sephardic Jewish origin, and 1 year for refugees or those born in Spain.",
+  investment:"Spain's Golden Visa (formerly from €500,000 in real estate) was fully abolished, with the closure taking legal effect on 3 April 2025. No investment-to-residency or investment-to-citizenship route currently exists.",
+  cost:[["Naturalisation fee","~€100"],["Investment route","Closed (April 2025)"]],
+  note:"The 10-year/2-year split by nationality is unusually sharp — genuinely fast for Latin American applicants, genuinely slow for almost everyone else, and the dual-citizenship rule mostly follows the same divide." },
+
+{ name:"Sweden", flag:"🇸🇪", region:"EU member states", status:"open", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Swedish parent.",
+  marriage:"2 years of marriage/cohabitation with a Swedish citizen (plus overall residence) shortens the standard 5-year requirement.",
+  naturalisation:"5 years' continuous legal residence (4 for stateless persons/recognised refugees), good conduct, and — under a 2025 law — a Swedish language and civics test is being phased in for new applicants (previously Sweden had no formal test).",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","~SEK 1,500 (~€130)"],["Investment route","Not available"]],
+  note:"Historically one of the easiest EU routes (no test at all); a language/civics requirement is newly being introduced, so expect this to tighten." },
+
+// ---------------- EEA / SCHENGEN NON-EU ----------------
+{ name:"United Kingdom", flag:"🇬🇧", region:"EEA / Schengen (non-EU)", status:"closed", dual:"Yes, allowed.",
+  descent:"Automatic for a child born abroad to a British citizen \"by descent\" parent, but that transmission generally stops after one generation born outside the UK unless the parent qualifies as a citizen \"otherwise than by descent.\"",
+  marriage:"3 years' residence (instead of 5) if married to or in a civil partnership with a British citizen, without needing to hold Indefinite Leave to Remain for as long.",
+  naturalisation:"Typically 5 years' residence plus 12 months holding Indefinite Leave to Remain (ILR) — around 6 years total in practice — a \"Life in the UK\" test, B1 English, and good character.",
+  investment:"The Tier 1 (Investor) visa route was permanently closed to new applicants in February 2022 and has not been replaced.",
+  cost:[["Naturalisation fee","£1,630 (~€1,900)"],["Investment route","Closed (2022)"]],
+  note:"No longer in the EU, but still a major, well-trodden destination — closure of the investor visa in 2022 removed the fastest former route." },
+
+{ name:"Switzerland", flag:"🇨🇭", region:"EEA / Schengen (non-EU)", status:"closed", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Swiss parent.",
+  marriage:"Facilitated naturalisation is available after 3 years of marriage to a Swiss citizen combined with 5 years' total residence in Switzerland.",
+  naturalisation:"10 years' residence is the federal minimum (years between ages 8–18 count double, capped), but candidates must also satisfy cantonal and communal requirements that vary widely and can add years, local language proficiency, and — in some communes — a local vote or interview on top of federal approval.",
+  investment:"No path from residency-by-investment (including Switzerland's lump-sum tax deal for wealthy residents) to citizenship — it remains entirely separate from naturalisation, which still requires the same years of ordinary residence.",
+  cost:[["Federal fee","~CHF 100–150"],["Cantonal/communal fees","can run into thousands of CHF, canton-dependent"],["Investment route","Not available"]],
+  note:"The three-tier (federal/cantonal/communal) approval process is unique in Europe and can make Switzerland one of the slowest and most locally variable routes, regardless of money." },
+
+{ name:"Norway", flag:"🇳🇴", region:"EEA / Schengen (non-EU)", status:"open", dual:"Yes, allowed since 1 January 2020 (previously required renunciation).",
+  descent:"Automatic for a child with a Norwegian parent.",
+  marriage:"No formal shortcut, but time as a resident spouse counts toward the ordinary residence clock.",
+  naturalisation:"8 years' residence within the last 11 years (some categories qualify sooner), passing Norwegian language (level A2/B1 depending on age) and a citizenship test on society and history.",
+  investment:"No investment route.",
+  cost:[["Application fee","~NOK 8,700 (~€750)"],["Investment route","Not available"]],
+  note:"The 2020 dual-citizenship reform was a major liberalisation — previously Norway required giving up any other nationality." },
+
+{ name:"Iceland", flag:"🇮🇸", region:"EEA / Schengen (non-EU)", status:"open", dual:"Yes, allowed since 2003.",
+  descent:"Automatic for a child with an Icelandic parent.",
+  marriage:"4 years married and resident with an Icelandic citizen reduces the ordinary 7-year residence requirement.",
+  naturalisation:"7 years' legal residence (4 years for citizens of other Nordic countries), Icelandic language proficiency, and good conduct. Citizenship applications ultimately require an Althingi (parliament) act for non-standard cases, though most now go through Directorate of Immigration administrative approval.",
+  investment:"No investment route.",
+  cost:[["Application fee","~ISK 66,000 (~€450)"],["Investment route","Not available"]],
+  note:"Nordic citizens get a notably shorter path (4 years) than everyone else (7 years)." },
+
+{ name:"Liechtenstein", flag:"🇱🇮", region:"EEA / Schengen (non-EU)", status:"closed", dual:"Restricted — generally requires renunciation of prior citizenship, with limited exceptions since a 2008 reform.",
+  descent:"Automatic for a child with a Liechtenstein-citizen parent.",
+  marriage:"Facilitated naturalisation is possible after several years of marriage combined with residence, considerably faster than ordinary naturalisation.",
+  naturalisation:"Ordinary naturalisation requires 30 years of residence (with years under 20 counted double, effectively reducing real time needed) and — uniquely — can require approval by the residents of the local municipality, sometimes via a communal vote, on top of national approval. An annual quota limits the total number of ordinary naturalisations granted.",
+  investment:"No investment route.",
+  cost:[["Application fees","CHF-denominated, several hundred CHF plus communal fees"],["Investment route","Not available"]],
+  note:"One of the most restrictive processes in Europe — a 30-year baseline, an annual quota, and historically a local communal vote on individual applicants." },
+
+// ---------------- MICROSTATES ----------------
+{ name:"Monaco", flag:"🇲🇨", region:"Microstates", status:"closed", dual:"Generally not permitted for naturalised citizens — Monaco does not officially recognise dual nationality acquired through naturalisation.",
+  descent:"Automatic for a child with a Monégasque parent (transmission rules were only equalised between mothers and fathers in 2017).",
+  marriage:"Historically limited; a foreign spouse of a Monégasque national does not receive automatic or fast-tracked citizenship.",
+  naturalisation:"Minimum 10 years' residence before an application can even be filed — but there is no automatic entitlement afterward. The decision is entirely at the discretion of the Sovereign Prince by decree, with no guaranteed timeline or outcome, and grants are historically very rare.",
+  investment:"Monaco has no citizenship-by-investment programme. Its famous residency route (proof of accommodation plus roughly €500,000+ in a Monaco bank account) grants residency and tax benefits only — it has no bearing on the discretionary naturalisation decision.",
+  cost:[["Naturalisation","No fixed fee — fully discretionary, no guaranteed outcome"],["Residency (unrelated to citizenship)","~€500,000+ bank deposit, real estate lease/purchase"]],
+  note:"Monaco is one of the hardest citizenships in the world to obtain by any route other than birth — wealth buys residency, not a passport." },
+
+{ name:"Andorra", flag:"🇦🇩", region:"Microstates", status:"closed", dual:"Not permitted for naturalised citizens in almost all cases — renunciation of prior citizenship is required.",
+  descent:"Automatic for a child with an Andorran parent.",
+  marriage:"Andorran citizens' foreign spouses can apply after 3 years of marriage combined with residence, far faster than the ordinary 20-year rule.",
+  naturalisation:"20 years of legal residence — one of the longest ordinary requirements anywhere in Europe (10 years for those born in Andorra to resident foreign parents).",
+  investment:"Andorra runs a residency-by-investment programme (from roughly €400,000 in Andorran assets/property/business) for \"passive residency,\" but it only grants residency, and the 20-year naturalisation clock still applies on top of it.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Passive-residency investment","from ~€400,000"]],
+  note:"The 20-year ordinary bar plus mandatory renunciation makes this one of the least practical citizenships in Europe for most foreign nationals." },
+
+{ name:"San Marino", flag:"🇸🇲", region:"Microstates", status:"closed", dual:"Allowed in principle, but naturalisation itself is so restrictive that it rarely becomes relevant for most applicants.",
+  descent:"Citizenship passes through a San Marino-citizen parent; San Marino also has specific (and historically gender-unequal, since revised) rules for citizenship transmission that are worth checking directly with authorities.",
+  marriage:"A foreign spouse of a Sammarinese citizen can apply after a set number of years of marriage and residence — meaningfully faster than ordinary naturalisation, but still requires years of residence in the country.",
+  naturalisation:"San Marino has no realistic ordinary-naturalisation route for unconnected foreign nationals: extremely long residency expectations (commonly cited around 30 years) and a system geared toward those with family ties make this, in practice, one of the most closed citizenships in Europe for outsiders.",
+  investment:"No citizenship-by-investment programme exists.",
+  cost:[["Naturalisation","No standard fee structure — route is not realistically available to most applicants"],["Investment route","Not available"]],
+  note:"Functionally closed to foreign nationals without ancestry or marriage ties — one of the clearest \"does not really grant citizenship\" cases in Europe." },
+
+{ name:"Vatican City", flag:"🇻🇦", region:"Microstates", status:"closed", dual:"Not applicable — Vatican citizenship is not held independently in the way other nationalities are; holders normally also retain another nationality.",
+  descent:"There is no route by descent. Vatican citizenship is not inherited by children of Vatican citizens.",
+  marriage:"No marriage-based route exists.",
+  naturalisation:"There is no naturalisation process at all. Vatican citizenship is granted ex officio only to people who hold a specific office or role in service of the Holy See — Cardinals resident in Vatican City, diplomats of the Holy See, the Swiss Guard, and certain Curia officials and their immediate family living in the Vatican. Citizenship is automatically lost the moment that role or employment ends.",
+  investment:"There is no investment route, and none could exist — citizenship is tied entirely to an active official function, not residence, marriage, wealth, or ancestry.",
+  cost:[["Any route for the general public","Does not exist"]],
+  note:"The clearest example in Europe of a country that does not offer citizenship to outsiders through any conventional means — it is function-based, temporary, and cannot be applied for." },
+
+// ---------------- WESTERN BALKANS ----------------
+{ name:"Bosnia and Herzegovina", flag:"🇧🇦", region:"Western Balkans", status:"open", dual:"Yes, allowed (subject to bilateral agreements with some countries).",
+  descent:"Automatic for a child with a Bosnian-citizen parent; a diaspora-friendly framework exists for people of Bosnian origin.",
+  marriage:"3 years of marriage to a Bosnian citizen (with residence) shortens the ordinary requirement.",
+  naturalisation:"8 years' continuous legal residence, a legal income source, and no security concerns; requirements are administered separately by the two entities (Federation of BiH and Republika Srpska) with some procedural variation.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","modest, entity-dependent"],["Investment route","Not available"]],
+  note:"Dual-entity administration (Federation/Republika Srpska) means procedures can vary depending on where you apply." },
+
+{ name:"Serbia", flag:"🇷🇸", region:"Western Balkans", status:"open", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Serbian-citizen parent; strong simplified-naturalisation provisions exist for members of the Serbian diaspora and ethnic Serbs regardless of current residence.",
+  marriage:"3 years of marriage to a Serbian citizen (registered residence) allows naturalisation without meeting the general residency requirement.",
+  naturalisation:"3 years of uninterrupted, approved residence for the general route (longer in practice once permit renewals and documentation are accounted for), a legal income source, and no security bar.",
+  investment:"No formal citizenship-by-investment programme, though Serbia does run residence-by-investment/employment routes that lead only to standard-timeline naturalisation.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Investment route","Not available"]],
+  note:"Relatively fast by regional standards, with an unusually generous diaspora/ethnicity provision." },
+
+{ name:"Montenegro", flag:"🇲🇪", region:"Western Balkans", status:"closed", dual:"Allowed only in limited circumstances — general naturalisation requires renouncing other citizenship.",
+  descent:"Automatic for a child with a Montenegrin-citizen parent.",
+  marriage:"Marriage to a Montenegrin citizen can shorten the residency requirement, subject to standard integration checks.",
+  naturalisation:"10 years' continuous legal residence, a legal income source, and (for most routes) renunciation of prior citizenship.",
+  investment:"Montenegro previously ran an economic-citizenship (investment) programme requiring a real-estate investment plus a government contribution; it was paused/discontinued around 2022 and is not currently accepting new applications.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Former investment programme","Discontinued (~2022)"]],
+  note:"The investment-citizenship programme that made Montenegro popular with international applicants is no longer running." },
+
+{ name:"North Macedonia", flag:"🇲🇰", region:"Western Balkans", status:"open", dual:"Allowed with some bilateral limitations.",
+  descent:"Automatic for a child with a citizen parent; simplified provisions exist for the large Macedonian diaspora.",
+  marriage:"3 years of marriage with residence can substitute for the general residency requirement.",
+  naturalisation:"8 years' continuous legal residence, a legal income source, and knowledge of the Macedonian language.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Investment route","Not available"]],
+  note:"Standard Balkan-style process, without notable shortcuts beyond descent and marriage." },
+
+{ name:"Albania", flag:"🇦🇱", region:"Western Balkans", status:"open", dual:"Yes, allowed.",
+  descent:"Automatic for a child with an Albanian-citizen parent; a generous simplified route exists for people of Albanian origin from the diaspora (including Kosovo and North Macedonia's Albanian communities).",
+  marriage:"3 years of marriage to an Albanian citizen shortens the standard residency requirement.",
+  naturalisation:"5 years' continuous legal residence, a legal income source, and basic Albanian language ability.",
+  investment:"Albania has debated a citizenship/residency-by-investment law, but implementation has been limited and it is not a reliable, active route as of 2026 — treat it as not currently operational for practical purposes.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Investment route","Proposed but not reliably operational"]],
+  note:"One of the shorter Balkan residency requirements (5 years), with a strong diaspora/ethnicity provision." },
+
+{ name:"Kosovo", flag:"🇽🇰", region:"Western Balkans", status:"narrow", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Kosovo-citizen parent; diaspora-friendly provisions exist given the size of the Kosovar Albanian diaspora abroad.",
+  marriage:"Marriage to a Kosovo citizen combined with residence can shorten the standard requirement.",
+  naturalisation:"9 years' continuous legal residence, a legal income source, and basic knowledge of Kosovo's constitutional order.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Investment route","Not available"]],
+  note:"Kosovo's partial international recognition (not recognised by all EU states, including Spain, Cyprus, Slovakia, Romania and Greece) can complicate the practical value of the passport for travel, independent of the naturalisation rules themselves." },
+
+// ---------------- EASTERN EUROPE & CAUCASUS FRINGE ----------------
+{ name:"Moldova", flag:"🇲🇩", region:"Eastern Europe & Caucasus fringe", status:"open", dual:"Yes, allowed.",
+  descent:"Automatic for a child with a Moldovan-citizen parent; many Moldovans instead use Romania's descent/reacquisition provisions to obtain EU (Romanian) citizenship, since a large share of the population qualifies through pre-1940 Romanian-citizen ancestors.",
+  marriage:"3 years of marriage to a Moldovan citizen can shorten the ordinary residency requirement.",
+  naturalisation:"10 years' continuous legal residence, a legal income source, and knowledge of the Moldovan (Romanian) language and constitution.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Investment route","Not available"]],
+  note:"In practice, most people pursuing an EU passport via Moldova go through Romania's ancestry provisions, not Moldovan naturalisation itself." },
+
+{ name:"Ukraine", flag:"🇺🇦", region:"Eastern Europe & Caucasus fringe", status:"narrow", dual:"Historically required renunciation of prior citizenship; a 2025 legal reform introduced conditional dual-citizenship recognition for citizens of specific partner/allied countries — confirm current bilateral status, as this is actively evolving.",
+  descent:"Automatic for a child with a Ukrainian-citizen parent.",
+  marriage:"No formal residency-reduction shortcut, though time resident as a spouse counts toward the ordinary clock.",
+  naturalisation:"5 years' continuous legal residence, Ukrainian language proficiency, knowledge of the constitution, a legal income source, and (outside the new bilateral dual-citizenship exceptions) renunciation of prior citizenship.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Investment route","Not available"]],
+  note:"Rules are in genuine flux due to the 2025 dual-citizenship reform and the wartime context — verify current status directly before relying on older renunciation-only guidance." },
+
+{ name:"Belarus", flag:"🇧🇾", region:"Eastern Europe & Caucasus fringe", status:"closed", dual:"Not officially recognised — Belarus does not formally accept dual citizenship for its nationals.",
+  descent:"Automatic for a child with a Belarusian-citizen parent.",
+  marriage:"No formal shortcut beyond standard residency accounting.",
+  naturalisation:"7 years' continuous legal residence, knowledge of the Belarusian or Russian language, a legal income source, and general renunciation expectations given the lack of dual-citizenship recognition.",
+  investment:"No investment route.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Investment route","Not available"]],
+  note:"The lack of formal dual-citizenship recognition, combined with the current political and travel climate, makes this a genuinely difficult and low-demand route in practice." },
+
+{ name:"Russia", flag:"🇷🇺", region:"Eastern Europe & Caucasus fringe", status:"narrow", dual:"Allowed, though naturalised citizens must formally notify Russian authorities of any other citizenship they hold.",
+  descent:"Automatic for a child with a Russian-citizen parent.",
+  marriage:"No formal residency-reduction route tied specifically to marriage, though it can support the general application.",
+  naturalisation:"5 years' continuous legal residence is standard, but the requirement drops to 1 year for several categories — including native Russian speakers, highly qualified specialists, citizens of certain former Soviet states, and people with a Russian-citizen close relative — plus a Russian language, history and law exam.",
+  investment:"No formal investment-to-citizenship programme.",
+  cost:[["Naturalisation fee","modest administrative fee"],["Investment route","Not available"]],
+  note:"The 1-year fast-track categories are broader than in most of Europe, but current sanctions and travel restrictions materially affect the practical value of the process for many nationalities." },
+];
+
+// HI_DATA: Hindi translations, keyed by English country name.
+// Kept slightly more concise than the English original for maintainability;
+// all facts, numbers, and years match the English source exactly.
+const HI_DATA = {
+"Austria": { dual:"नहीं — कुछ अपवादों (शरणार्थी, त्याग असंभव होने, या असाधारण कठिनाई) को छोड़कर पिछली नागरिकता त्यागनी होगी।",
+  descent:"ऑस्ट्रियाई माता-पिता की संतान को स्वतः नागरिकता। 2020 से नाज़ी उत्पीड़न पीड़ितों के वंशजों के लिए कोई पीढ़ी-सीमा नहीं।",
+  marriage:"ऑस्ट्रियाई जीवनसाथी के लिए कोई सीधा शॉर्टकट नहीं — फिर भी 6 वर्ष निवास (सामान्य 10 वर्ष के बजाय) और सभी एकीकरण शर्तें पूरी करनी होंगी।",
+  naturalisation:"10 वर्ष वैध निवास (असाधारण एकीकरण, EU/EEA जीवनसाथी या विशेष उपलब्धियों पर 6 वर्ष)। B2 जर्मन, नागरिकता परीक्षा, आत्मनिर्भर आय और स्वच्छ आपराधिक रिकॉर्ड आवश्यक।",
+  investment:"कोई निवेश मार्ग नहीं है। \"असाधारण योग्यता\" प्रावधान पूर्णतः विवेकाधीन है, खरीदने योग्य कार्यक्रम नहीं।",
+  note:"EU में सबसे सख्त नागरिकता व्यवस्थाओं में से एक — लंबा निवास, लगभग पूर्ण त्याग आवश्यकता, और कोई निवेश शॉर्टकट नहीं।" },
+
+"Belgium": { dual:"हाँ, 2008 से अनुमति है।",
+  descent:"बेल्जियन माता-पिता होने पर जन्म से स्वतः नागरिकता (या 18 वर्ष तक घोषणा द्वारा)।",
+  marriage:"कोई अलग शॉर्टकट नहीं, पर कानूनी सहवास निवास-गणना में जुड़ता है।",
+  naturalisation:"5 वर्ष वैध निवास पर \"राष्ट्रीयता घोषणा\" दाखिल की जा सकती है (शर्तें पूरी होने पर लगभग स्वतः); एकीकरण प्रमाण (भाषा, कार्य/अध्ययन) और स्वच्छ रिकॉर्ड आवश्यक।",
+  investment:"नागरिकता के लिए कोई निवेश मार्ग नहीं।",
+  note:"पश्चिमी यूरोप के अधिक सुलभ मार्गों में से एक — 5 वर्ष, ऑस्ट्रिया या डेनमार्क जैसी सख्त परीक्षा नहीं।" },
+
+"Bulgaria": { dual:"हाँ, अनुमति है।",
+  descent:"बल्गेरियाई माता-पिता की संतान को स्वतः; बल्गेरियाई मूल के व्यक्तियों के लिए सरल मार्ग (अक्सर निवास आवश्यक नहीं)।",
+  marriage:"बल्गेरियाई नागरिक से 3 वर्ष विवाह पर सामान्य 5 वर्ष निवास आवश्यकता घटकर 3 वर्ष हो जाती है।",
+  naturalisation:"5 वर्ष निरंतर वैध निवास (जीवनसाथी होने पर 3 वर्ष), बल्गेरियाई भाषा दक्षता, वैध आय स्रोत।",
+  investment:"2022 में तेज़-ट्रैक निवेश-नागरिकता योजना समाप्त हुई (EU दबाव में)। ~€512,000 का निवास-निवेश मार्ग अब भी है, पर नागरिकता के लिए सामान्य 5 वर्ष की प्रक्रिया ही चलती है।",
+  note:"सीधा \"पासपोर्ट खरीदें\" मार्ग समाप्त — शेष केवल निवास-निवेश है जिसमें सामान्य वर्ष लगते हैं।" },
+
+"Croatia": { dual:"हाँ, अनुमति है।",
+  descent:"व्यापक प्रवासी कानून: क्रोएशियाई मूल और भाषा/संस्कृति से जुड़ाव सिद्ध करने वाला कोई भी व्यक्ति बिना क्रोएशिया में रहे नागरिकता ले सकता है।",
+  marriage:"क्रोएशियाई नागरिक के जीवनसाथी पूर्ण 8 वर्ष के बिना, छोटी अवधि में आवेदन कर सकते हैं।",
+  naturalisation:"8 वर्ष निरंतर निवास, क्रोएशियाई भाषा व लिपि, संस्कृति व सामाजिक व्यवस्था का ज्ञान।",
+  investment:"नागरिकता के लिए कोई निवेश कार्यक्रम नहीं।",
+  note:"प्रवासी/जातीयता मार्ग असामान्य रूप से उदार है, अमेरिका व ऑस्ट्रेलिया में वंशजों द्वारा खूब उपयोग किया जाता है।" },
+
+"Cyprus": { dual:"हाँ, अनुमति है।",
+  descent:"साइप्रस माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"सामान्य 7 वर्ष के बजाय लगभग 4 वर्ष (विवाह+निवास मिलाकर)।",
+  naturalisation:"7 वर्ष वैध निवास (अंतिम वर्ष निरंतर), ग्रीक भाषा योग्यता, समुदाय में एकीकरण।",
+  investment:"2020 में भ्रष्टाचार कांड के बाद निवेश-नागरिकता पूर्णतः बंद। ~€300,000 का निवास-निवेश मार्ग खुला है, पर नागरिकता के लिए सामान्य वर्ष चाहिए।",
+  note:"कुख्यात पुरानी गोल्डन-पासपोर्ट योजना पूरी तरह बंद है; निवास-निवेश को नागरिकता शॉर्टकट न समझें।" },
+
+"Czechia": { dual:"हाँ, 2014 से अनुमति है।",
+  descent:"चेक नागरिक माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"कोई समर्पित शॉर्टकट नहीं, पर चेक नागरिक जीवनसाथी के साथ रहने का समय एकीकरण मूल्यांकन में गिना जाता है।",
+  naturalisation:"5 वर्ष निरंतर स्थायी निवास, B1 चेक भाषा, नागरिक शास्त्र परीक्षा, स्वच्छ रिकॉर्ड और राज्य पर कोई बकाया नहीं।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"क्षेत्रीय मानकों की तुलना में सीधा, मध्यम-अवधि मार्ग।" },
+
+"Denmark": { dual:"हाँ, 2015 से अनुमति है।",
+  descent:"डेनिश माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"कोई औपचारिक शॉर्टकट नहीं — डेनमार्क वैवाहिक स्थिति की परवाह किए बिना समान व्यवहार करता है, हालांकि जीवनसाथी के रूप में डेनमार्क में कुल वैध निवास गिना जाता है।",
+  naturalisation:"असामान्य रूप से, डेनिश नागरिकता संसद के अधिनियम द्वारा दी जाती है। सामान्यतः ~9 वर्ष निवास, कठिन नागरिकता परीक्षा, उच्च-स्तरीय डेनिश भाषा, आत्मनिर्भरता (सीमित सार्वजनिक लाभ) आवश्यक।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"संसदीय-विधेयक तंत्र व सख्त आत्मनिर्भरता नियम इसे EU की सबसे मांग वाली प्रक्रियाओं में से एक बनाते हैं।" },
+
+"Estonia": { dual:"नहीं — कुछ अपवादों को छोड़कर अन्य नागरिकता त्यागनी होगी।",
+  descent:"केवल तभी स्वतः जब माता-पिता एस्टोनियाई नागरिक हों; कोई व्यापक प्रवासी/जातीयता मार्ग नहीं।",
+  marriage:"जीवनसाथी के लिए कोई शॉर्टकट नहीं।",
+  naturalisation:"8 वर्ष वैध निवास (आवेदन से ठीक पहले 5 वर्ष), B1 एस्टोनियाई भाषा, संविधान व नागरिकता-अधिनियम परीक्षा, वैध आय।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"त्याग आवश्यकता और वास्तविक भाषा बाधा इसे उन लोगों के लिए वास्तव में बंद दरवाज़ा बनाती है जो अपनी पहली नागरिकता नहीं छोड़ना चाहते।" },
+
+"Finland": { dual:"हाँ, अनुमति है।",
+  descent:"फिनिश माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"फिन के साथ 4 वर्ष विवाह/सहवास व निरंतर संयुक्त निवास पर मानक आवश्यकता घटती है।",
+  naturalisation:"5 वर्ष निरंतर निवास (फिन से विवाहित होने पर 4 वर्ष), संतोषजनक फिनिश/स्वीडिश भाषा, राज्य पर कोई अनसुलझा बकाया नहीं।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"नॉर्डिक मानक के अनुरूप — मध्यम वर्ष, वास्तविक पर प्राप्य भाषा बाधा।" },
+
+"France": { dual:"हाँ, अनुमति है।",
+  descent:"रक्त-सिद्धांत (droit du sang): फ्रांसीसी माता-पिता की संतान को स्वतः; जन्म-सिद्धांत (droit du sol) से फ्रांस में जन्मे विदेशी माता-पिता के बच्चों को 18 वर्ष पर (या पहले, शर्तों सहित) नागरिकता, यदि वहीं पले-बढ़े हों।",
+  marriage:"4 वर्ष विवाह (यदि दंपति 3 वर्ष फ्रांस में न रहे हों तो 5 वर्ष) व B1 फ्रेंच के साथ 5-वर्षीय निवास मार्ग की जगह लेता है।",
+  naturalisation:"5 वर्ष सामान्य निवास (फ्रांसीसी उच्च शिक्षा स्नातकों, असाधारण योगदानकर्ताओं या शरणार्थियों के लिए माफ़/कम), B1 मौखिक फ्रेंच, फ्रांसीसी समाज व मूल्यों में समावेशन।",
+  investment:"औपचारिक निवेश-नागरिकता योजना नहीं; \"Passeport Talent\" निवेशक वीज़ा केवल निवास देता है, नागरिकता की सामान्य प्रक्रिया लागू रहती है।",
+  note:"बड़े EU देशों में अपेक्षाकृत व्यवहार्य मार्ग, विशेषकर फ्रांसीसी विश्वविद्यालय स्नातकों के लिए (निवास आवश्यकता 2 वर्ष तक घट सकती है)।" },
+
+"Germany": { dual:"हाँ — जर्मनी के 2024 सुधार से अब अधिकांश आवेदकों के लिए दोहरी नागरिकता व्यापक रूप से अनुमत, पुरानी त्याग-आवश्यकता समाप्त।",
+  descent:"जर्मन माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"जर्मन नागरिक से 3 वर्ष विवाह (2 वर्ष निवास सहित) से 5-वर्षीय मानक की तुलना में मार्ग छोटा हो सकता है।",
+  naturalisation:"2024 सुधार से घटकर 5 वर्ष वैध निवास (असाधारण एकीकरण — C1 जर्मन, मज़बूत नागरिक सहभागिता या शीर्ष उपलब्धि — पर 3 वर्ष), Einbürgerungstest परीक्षा, आत्मनिर्भरता।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"2024 सुधार (कम निवास + दोहरी नागरिकता) पिछले दो वर्षों में EU के सबसे सुधरे मार्गों में से एक बनाता है।" },
+
+"Greece": { dual:"हाँ, अनुमति है।",
+  descent:"ग्रीक माता-पिता की संतान को स्वतः; ग्रीक जातीय मूल के प्रवासियों के लिए सरल प्रक्रिया।",
+  marriage:"3 वर्ष विवाह व निवास से प्रभावी मार्ग छोटा हो सकता है।",
+  naturalisation:"7 वर्ष वैध निवास, ग्रीक इतिहास/भूगोल/नागरिक शास्त्र परीक्षा, ग्रीक भाषा दक्षता।",
+  investment:"गोल्डन वीज़ा सक्रिय: रियल-एस्टेट निवेश €250,000 से (उच्च-मांग क्षेत्रों जैसे मध्य एथेंस/मायकोनोस/सैंटोरिनी में €800,000 तक) नवीकरणीय निवास देता है। सीधे नागरिकता नहीं — बाद में सामान्य 7-वर्षीय प्रक्रिया लागू।",
+  note:"वास्तव में लोकप्रिय गोल्डन वीज़ा, पर यह निवास व पात्रता खरीदता है, सीधे पासपोर्ट नहीं।" },
+
+"Hungary": { dual:"हाँ, अनुमति है।",
+  descent:"हंगेरियाई वंश सिद्ध करने वाले किसी भी व्यक्ति के लिए बहुत व्यापक सरल प्रक्रिया, बुनियादी हंगेरियाई भाषा के साथ — हंगरी में निवास आवश्यक नहीं। यूरोप के सबसे उदार प्रवासी कार्यक्रमों में से एक।",
+  marriage:"मानक निवास नियमों से परे कोई समर्पित शॉर्टकट नहीं।",
+  naturalisation:"सामान्य आवेदकों के लिए 8 वर्ष निरंतर निवास (हंगेरियाई नागरिक के जीवनसाथी या माता-पिता के लिए 3 वर्ष), हंगेरियाई भाषा परीक्षा, संवैधानिक अध्ययन परीक्षा।",
+  investment:"हंगरी गेस्ट इन्वेस्टर कार्यक्रम (नियमित रियल-एस्टेट फंड में ~€250,000 से, या सीधे रियल-एस्टेट में €1,000,000) 10-वर्षीय नवीकरणीय निवास परमिट देता है, नागरिकता नहीं — इसके बाद सामान्य निवास वर्ष चाहिए।",
+  note:"वंश-मार्ग असाधारण रूप से आसान है; निवेशक मार्ग केवल निवास तक सीमित है।" },
+
+"Ireland": { dual:"हाँ, अनुमति है।",
+  descent:"असामान्य रूप से उदार: आयरिश-जन्मे दादा-दादी वाला कोई भी व्यक्ति विदेशी जन्म रजिस्टर (Foreign Births Register) में पंजीकरण कर सीधे नागरिकता पा सकता है — और एक बार पंजीकृत होने पर उसके बच्चे भी योग्य हो सकते हैं, जब तक हर पीढ़ी पंजीकरण कराए।",
+  marriage:"आयरिश नागरिक से 3 वर्ष विवाह/नागरिक साझेदारी (साथ रहना) से \"गणनीय निवास\" 5 से घटकर 3 वर्ष।",
+  naturalisation:"पिछले 9 वर्षों में 5 वर्ष गणनीय निवास (आवेदन से पहले का वर्ष सहित), अच्छा चरित्र, आयरलैंड में रहने का इरादा। कोई भाषा परीक्षा नहीं।",
+  investment:"इमिग्रेंट इन्वेस्टर प्रोग्राम (€1,000,000 से) फ़रवरी 2023 में बंद हुआ, बदला नहीं जा रहा।",
+  note:"दादा-दादी नियम यूरोप के सबसे उदार वंश-मार्गों में से एक है, आयरलैंड में निवास की भी आवश्यकता नहीं।" },
+
+"Italy": { dual:"हाँ, अनुमति है।",
+  descent:"Jure sanguinis ऐतिहासिक रूप से पीढ़ी-असीमित था, जिससे इटली दूर के पूर्वजों के दावों के लिए प्रसिद्ध हुआ। मार्च 2025 के सुधार ने इसे सख्ती से सीमित किया: दावे अब सामान्यतः इटली में जन्मे माता-पिता या दादा-दादी तक सीमित (अदालती चुनौतियाँ जारी)।",
+  marriage:"इटली में रहते हुए 2 वर्ष विवाह (विदेश में रहने पर 3 वर्ष, बच्चे होने पर आधा) 10-वर्षीय प्रतीक्षा की जगह।",
+  naturalisation:"गैर-EU नागरिकों के लिए 10 वर्ष वैध निवास (EU नागरिकों के लिए 4 वर्ष, राज्यविहीन/शरणार्थियों के लिए 5 वर्ष), B1 इतालवी, पर्याप्त आय।",
+  investment:"निवेशक वीज़ा (नवाचार स्टार्टअप में €250,000 से, सरकारी बॉन्ड में €2,000,000 तक) 2-वर्षीय नवीकरणीय निवास परमिट देता है, नागरिकता नहीं — बाद में सामान्य 10-वर्षीय प्रक्रिया लागू।",
+  note:"2025 का jure sanguinis सुधार यूरोपीय वंश-नागरिकता कानून में सबसे बड़ा हालिया बदलाव है — परदादा-आधारित दावों पर निर्भर होने से पहले वर्तमान पात्रता ज़रूर जांचें।" },
+
+"Latvia": { dual:"सीमित — केवल एक विशिष्ट देश-सूची (मुख्यतः EU/NATO/EFTA राज्य) के साथ अनुमत; सार्वभौमिक नहीं।",
+  descent:"मुख्यतः उन्हीं तक सीमित जो 1940-पूर्व लातवियाई नागरिकता सिद्ध कर सकें — सोवियत-युग की \"गैर-नागरिक\" स्थिति की विरासत, जो अब भी लातविया में जन्मे कई जातीय रूसियों को प्रभावित करती है।",
+  marriage:"कोई समर्पित शॉर्टकट नहीं।",
+  naturalisation:"5 वर्ष स्थायी निवास, कठिन लातवियाई भाषा परीक्षा, इतिहास/संविधान/राष्ट्रगान परीक्षा, स्वीकृत सूची से बाहर के देशों के लिए अन्य नागरिकता त्याग।",
+  investment:"गोल्डन वीज़ा अब भी चल रहा (व्यवसाय निवेश €50,000 से) पर जून 2026 में संसद ने 1 जनवरी 2027 से अधिकांश निवेश-निवास मार्ग समाप्त करने का वोट दिया — इसे शीघ्र बंद होता मानें।",
+  note:"सीमित दोहरी नागरिकता और सख्त भाषा/इतिहास परीक्षा इसे बाल्टिक क्षेत्र के कड़े मार्गों में से एक बनाती है; निवेश द्वार सक्रिय रूप से बंद हो रहा है।" },
+
+"Lithuania": { dual:"सीमित — सामान्यतः केवल 1940-पूर्व लिथुआनियाई नागरिकों के वंशजों की नागरिकता-पुनर्प्राप्ति के लिए अनुमत, सामान्य प्राकृतिकीकृत नागरिकों के लिए नहीं।",
+  descent:"1940 (सोवियत विलय) से पहले लिथुआनियाई नागरिक रहे लोगों के वंशजों के लिए बिना निवास आवश्यकता के नागरिकता-पुनर्स्थापन उपलब्ध — अमेरिका में विशेष रूप से उपयोग किया जाने वाला प्रमुख प्रवासी मार्ग।",
+  marriage:"कोई समर्पित शॉर्टकट नहीं।",
+  naturalisation:"सामान्य आवेदकों के लिए 10 वर्ष स्थायी निवास, लिथुआनियाई भाषा, संविधान परीक्षा, वैध आय स्रोत। जातीय लिथुआनियाई लोगों के लिए पूर्ण निवास आवश्यकता के बिना सरल प्रक्रिया।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"सामान्य प्राकृतिकीकरण धीमा है (10 वर्ष); पूर्व-सोवियत पारिवारिक संबंध वालों के लिए वंश/पुनर्स्थापन मार्ग तुलनात्मक रूप से तेज़ है।" },
+
+"Luxembourg": { dual:"हाँ, अनुमति है।",
+  descent:"लक्ज़मबर्गी माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"कोई समर्पित शॉर्टकट नहीं, पर संयुक्त निवास एकीकरण में गिना जाता है।",
+  naturalisation:"5 वर्ष वैध निवास, लक्ज़मबर्गी भाषा A2 बोलना/B1 सुनना, राष्ट्रीय संस्थानों को कवर करने वाला अनिवार्य नागरिक/एकीकरण पाठ्यक्रम।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"छोटी निवास आवश्यकता, पर लक्ज़मबर्गी (फ्रेंच/जर्मन नहीं) भाषा परीक्षा कई आवेदकों को आश्चर्यचकित करती है।" },
+
+"Malta": { dual:"हाँ, अनुमति है।",
+  descent:"माल्टीज़ माता-पिता की संतान को स्वतः नागरिकता; कुछ मामलों में माल्टा में जन्मे दादा-दादी वाले लोगों के लिए पंजीकरण मार्ग।",
+  marriage:"माल्टीज़ नागरिकों के जीवनसाथियों के लिए सामान्य प्राकृतिकीकरण समयरेखा घटती है।",
+  naturalisation:"निवेश योजना बंद होने के बाद से अब मुख्य मार्ग — रिपोर्ट किए गए समयरेखा विशिष्ट मार्ग पर 7 से 18 वर्ष, साथ ही वास्तविक-संबंध परीक्षण, स्वच्छ रिकॉर्ड, अंग्रेज़ी/माल्टीज़ दक्षता।",
+  investment:"माल्टा की निवेश-द्वारा-नागरिकता योजना (पूर्व में ~€600,000–€750,000) को 29 अप्रैल 2025 को यूरोपीय संघ न्यायालय ने अवैध घोषित किया और जुलाई 2025 में औपचारिक रूप से बंद किया गया — यह EU की अंतिम प्रत्यक्ष \"पासपोर्ट खरीदें\" योजना थी; अब EU में कहीं भी ऐसी नहीं बची। माल्टा स्थायी निवास कार्यक्रम (€375,000 संपत्ति से, या €14,000/वर्ष किराया + €2,000 दान) अब भी केवल निवास देता है।",
+  note:"माल्टा के बंद होने से EU में अंतिम पासपोर्ट-बिक्री कार्यक्रम समाप्त हुआ — अब कोई EU देश सीधे पासपोर्ट नहीं बेचता।" },
+
+"Netherlands": { dual:"नहीं — अधिकांश मामलों में पिछली नागरिकता त्यागनी होगी (डच नागरिकों के जीवनसाथी, शरणार्थी व कुछ अन्य श्रेणियों को सीमित छूट)।",
+  descent:"डच माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"3 वर्ष विवाह/पंजीकृत साझेदारी व निरंतर निवास से आवश्यकता 5 से घटकर 3 वर्ष।",
+  naturalisation:"5 वर्ष निरंतर वैध निवास (डच नागरिक से विवाहित/साझेदार होने पर 3 वर्ष), एकीकरण परीक्षा (inburgeringsexamen), स्वच्छ आपराधिक रिकॉर्ड।",
+  investment:"नागरिकता के लिए कोई निवेश मार्ग नहीं।",
+  note:"मुख्य बाधा त्याग-आवश्यकता है — अपेक्षाकृत छोटी निवास अवधि भी मदद नहीं करती यदि पहला पासपोर्ट छोड़ना विकल्प न हो।" },
+
+"Poland": { dual:"हाँ, अनुमति है (पोलैंड ने 2012 में सहमति-आवश्यकता हटाई)।",
+  descent:"यूरोप के सबसे उदार वंश-मार्गों में से एक: यदि किसी पूर्वज से अटूट पोलिश नागरिकता श्रृंखला दस्तावेज़ित की जा सके तो पोलिश नागरिकता की पुष्टि बिना पीढ़ी-सीमा के उपलब्ध (द्वितीय विश्व युद्ध-पूर्व प्रवासियों के वंशजों द्वारा सामान्यतः उपयोग)।",
+  marriage:"मानक निवास से परे कोई समर्पित शॉर्टकट नहीं, पर पोलिश नागरिक से विवाह स्थायी-निवास आवेदनों में सहायक जो बाद में प्राकृतिकीकरण की ओर ले जाते हैं।",
+  naturalisation:"वास्तविक संबंध दिखाने वालों के लिए किसी भी समय राष्ट्रपति द्वारा विवेकाधीन अनुदान संभव; स्थायी निवासियों के लिए मानक मार्ग 3 वर्ष स्थायी/EU दीर्घकालिक निवास स्थिति व वैध आय स्रोत।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"वंश-पुष्टि मार्ग (तकनीकी रूप से \"प्राकृतिकीकरण\" नहीं) बड़े पोलिश प्रवासी समुदाय द्वारा सबसे तेज़ और सर्वाधिक उपयोग किया जाने वाला मार्ग है।" },
+
+"Portugal": { dual:"हाँ, अनुमति है।",
+  descent:"पुर्तगाली माता-पिता की संतान को स्वतः; प्रसिद्ध सेफ़र्दी यहूदी वंश कार्यक्रम 2022 में नए आवेदकों के लिए बंद हुआ।",
+  marriage:"पुर्तगाली नागरिक से 3 वर्ष विवाह/वास्तविक संघ मानक निवास आवश्यकता की जगह लेता है।",
+  naturalisation:"5 वर्ष वैध निवास और केवल A2-स्तर पुर्तगाली — EU की सबसे कम भाषा बाधाओं में से एक। 2025 के विधायी परिवर्तन ने कुछ गोल्डन वीज़ा/निवेशक मामलों के लिए निवास-गणना नियम बढ़ाए हैं, इसलिए पुराने 5-वर्षीय अनुमानों पर निर्भर होने से पहले वर्तमान समयरेखा जांचें।",
+  investment:"गोल्डन वीज़ा फंड निवेश (€500,000 से; रियल-एस्टेट 2023 में योग्य मार्ग से हटाया गया) या कला/सांस्कृतिक विरासत सहायता में €250,000 से खुला है। यह निवास देता है (प्रति वर्ष केवल 7 दिन भौतिक उपस्थिति) जो सामान्य निवास समयरेखा पर नागरिकता की ओर ले जा सकता है, तुरंत नहीं।",
+  note:"कम भाषा बाधा व न्यूनतम भौतिक-उपस्थिति आवश्यकता के कारण अब भी सबसे लोकप्रिय EU मार्गों में से एक — पर हाल के कानून परिवर्तन सक्रिय रूप से समयरेखा बदल रहे हैं, इसलिए 5 वर्ष मानने से पहले वर्तमान नियम जांचें।" },
+
+"Romania": { dual:"हाँ, अनुमति है।",
+  descent:"पूर्व रोमानियाई नागरिकों और उनके वंशजों के लिए बहुत उदार \"पुनर्प्राप्ति\" मार्ग (रोमानिया की EU सदस्यता के कारण मोल्दोवावासियों द्वारा खूब उपयोग किया गया) — अक्सर रोमानिया में निवास आवश्यक नहीं।",
+  marriage:"रोमानियाई नागरिक से 4 वर्ष विवाह मानक 8-वर्षीय निवास आवश्यकता घटाता है।",
+  naturalisation:"8 वर्ष वैध निवास (शरणार्थियों के लिए 5 वर्ष), रोमानियाई भाषा, संविधान व संस्कृति का ज्ञान, वैध आय स्रोत।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"पुनर्प्राप्ति-वंश मार्ग मोल्दोवा की अधिकांश आबादी के लिए EU पासपोर्ट का सबसे तेज़ रास्ता है।" },
+
+"Slovakia": { dual:"सीमित — सामान्यतः अन्य नागरिकता त्यागनी होगी जब तक जन्म से प्राप्त हो या EU/OECD-सदस्य राज्य से हो (2022 सुधार ने आंशिक रूप से छूट दी)।",
+  descent:"स्लोवाक माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"कोई समर्पित शॉर्टकट नहीं।",
+  naturalisation:"8 वर्ष स्थायी निवास, स्लोवाक भाषा परीक्षा, स्वच्छ आपराधिक रिकॉर्ड; दस्तावेज़ित स्लोवाक जातीय पृष्ठभूमि वालों के लिए अपवाद।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"मध्यम 8-वर्षीय निवास बाधा के बावजूद, अधिक महंगी और त्याग-सख्त EU प्रक्रियाओं में से एक।" },
+
+"Slovenia": { dual:"सीमित — जब तक द्विपक्षीय पारस्परिकता समझौता लागू हो या त्याग असंभव हो, सामान्यतः त्याग आवश्यक।",
+  descent:"स्लोवेनियाई माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"स्लोवेनियाई नागरिक से 2 वर्ष विवाह व निवास 10-वर्षीय मानक की तुलना में मार्ग छोटा कर सकता है।",
+  naturalisation:"10 वर्ष वैध निवास (आवेदन से ठीक पहले 5 वर्ष निरंतर), स्लोवेनियाई भाषा दक्षता, स्लोवेनियाई समाज में एकीकरण।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"लंबा निवास व वास्तविक त्याग-बाधा इसे कठिन मानक EU मार्गों में से एक बनाती है।" },
+
+"Spain": { dual:"सामान्यतः नहीं — स्पेन को पिछली नागरिकता त्यागने की आवश्यकता है, सिवाय इबेरो-अमेरिकी देशों, अंडोरा, फ़िलीपींस, इक्वेटोरियल गिनी, पुर्तगाल के नागरिकों व सेफ़र्दी यहूदियों के, जो दोनों रख सकते हैं।",
+  descent:"स्पेनिश माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"स्पेनिश नागरिक से 1 वर्ष विवाह (स्पेन में रहते हुए) मानक निवास आवश्यकता की जगह लेता है।",
+  naturalisation:"अधिकांश राष्ट्रीयताओं के लिए 10 वर्ष वैध निवास — पर इबेरो-अमेरिकी देशों, अंडोरा, फ़िलीपींस, इक्वेटोरियल गिनी, पुर्तगाल के नागरिकों या सेफ़र्दी यहूदी मूल वालों के लिए 2 वर्ष, और शरणार्थियों या स्पेन में जन्मे लोगों के लिए 1 वर्ष।",
+  investment:"स्पेन का गोल्डन वीज़ा (पूर्व में €500,000 रियल-एस्टेट से) पूर्णतः समाप्त, 3 अप्रैल 2025 से कानूनी रूप से प्रभावी। कोई निवेश-से-निवास या निवेश-से-नागरिकता मार्ग अब मौजूद नहीं।",
+  note:"राष्ट्रीयता के अनुसार 10-वर्ष/2-वर्ष का विभाजन असामान्य रूप से तीव्र है — लैटिन अमेरिकी आवेदकों के लिए वास्तव में तेज़, लगभग बाकी सभी के लिए वास्तव में धीमा।" },
+
+"Sweden": { dual:"हाँ, अनुमति है।",
+  descent:"स्वीडिश माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"स्वीडिश नागरिक से 2 वर्ष विवाह/सहवास (कुल निवास सहित) मानक 5-वर्षीय आवश्यकता घटाता है।",
+  naturalisation:"5 वर्ष निरंतर वैध निवास (राज्यविहीन/मान्यता प्राप्त शरणार्थियों के लिए 4 वर्ष), अच्छा आचरण। 2025 के कानून के तहत नए आवेदकों के लिए स्वीडिश भाषा व नागरिक शास्त्र परीक्षा चरणबद्ध रूप से लागू हो रही है (पहले स्वीडन में कोई औपचारिक परीक्षा नहीं थी)।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"ऐतिहासिक रूप से सबसे आसान EU मार्गों में से एक (कोई परीक्षा नहीं); भाषा/नागरिक शास्त्र आवश्यकता नई है, अतः इसके सख्त होने की उम्मीद करें।" },
+
+"United Kingdom": { dual:"हाँ, अनुमति है।",
+  descent:"विदेश में जन्मे \"वंश द्वारा\" ब्रिटिश माता-पिता की संतान को स्वतः, पर यह हस्तांतरण सामान्यतः एक पीढ़ी के बाद रुक जाता है जब तक माता-पिता \"वंश के अलावा\" नागरिक न हों।",
+  marriage:"ब्रिटिश नागरिक से विवाहित/नागरिक साझेदारी में होने पर 5 के बजाय 3 वर्ष निवास, बिना उतने समय के अनिश्चितकालीन प्रवास अनुमति (ILR) की आवश्यकता।",
+  naturalisation:"सामान्यतः 5 वर्ष निवास व 12 महीने अनिश्चितकालीन प्रवास अनुमति (ILR) — व्यवहार में लगभग 6 वर्ष कुल, \"Life in the UK\" परीक्षा, B1 अंग्रेज़ी, अच्छा चरित्र।",
+  investment:"टियर 1 (निवेशक) वीज़ा मार्ग फ़रवरी 2022 में नए आवेदकों के लिए स्थायी रूप से बंद, बदला नहीं गया।",
+  note:"अब EU में नहीं, पर अब भी प्रमुख, सुपरिचित गंतव्य — 2022 में निवेशक वीज़ा बंद होने से सबसे तेज़ पूर्व मार्ग हटा।" },
+
+"Switzerland": { dual:"हाँ, अनुमति है।",
+  descent:"स्विस माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"स्विस नागरिक से 3 वर्ष विवाह व कुल 5 वर्ष निवास के साथ सुगम प्राकृतिकीकरण उपलब्ध।",
+  naturalisation:"संघीय न्यूनतम 10 वर्ष निवास है (8–18 आयु के बीच के वर्ष दोगुने गिने जाते हैं, सीमा सहित), पर उम्मीदवारों को कैंटन व नगरपालिका आवश्यकताएँ भी पूरी करनी होती हैं जो व्यापक रूप से भिन्न होती हैं और वर्ष जोड़ सकती हैं, स्थानीय भाषा दक्षता, और कुछ नगरपालिकाओं में संघीय अनुमोदन के अलावा स्थानीय मतदान या साक्षात्कार।",
+  investment:"निवास-निवेश (स्विट्ज़रलैंड के धनी निवासियों के लिए लम्प-सम कर सौदे सहित) से नागरिकता तक कोई मार्ग नहीं — यह प्राकृतिकीकरण से पूर्णतः अलग रहता है, जिसके लिए वही सामान्य निवास वर्ष चाहिए।",
+  note:"तीन-स्तरीय (संघीय/कैंटन/नगरपालिका) अनुमोदन प्रक्रिया यूरोप में अद्वितीय है और स्विट्ज़रलैंड को धन की परवाह किए बिना सबसे धीमे व स्थानीय रूप से सबसे परिवर्तनशील मार्गों में से एक बना सकती है।" },
+
+"Norway": { dual:"हाँ, 1 जनवरी 2020 से अनुमति है (पहले त्याग आवश्यक था)।",
+  descent:"नॉर्वेजियन माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"कोई औपचारिक शॉर्टकट नहीं, पर निवासी जीवनसाथी के रूप में समय सामान्य निवास-गणना में जुड़ता है।",
+  naturalisation:"पिछले 11 वर्षों में 8 वर्ष निवास (कुछ श्रेणियां पहले योग्य), नॉर्वेजियन भाषा (उम्र अनुसार A2/B1 स्तर) व समाज-इतिहास नागरिकता परीक्षा उत्तीर्ण करना।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"2020 का दोहरी-नागरिकता सुधार एक बड़ा उदारीकरण था — पहले नॉर्वे को किसी अन्य राष्ट्रीयता के त्याग की आवश्यकता होती थी।" },
+
+"Iceland": { dual:"हाँ, 2003 से अनुमति है।",
+  descent:"आइसलैंडिक माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"आइसलैंडिक नागरिक से 4 वर्ष विवाहित व निवासी होने पर सामान्य 7-वर्षीय निवास आवश्यकता घटती है।",
+  naturalisation:"7 वर्ष वैध निवास (अन्य नॉर्डिक देशों के नागरिकों के लिए 4 वर्ष), आइसलैंडिक भाषा दक्षता, अच्छा आचरण। असामान्य मामलों के लिए नागरिकता आवेदनों को अंततः Althingi (संसद) के अधिनियम की आवश्यकता होती है, हालांकि अधिकांश अब आव्रजन निदेशालय की प्रशासनिक स्वीकृति से गुज़रते हैं।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"अन्य नॉर्डिक नागरिकों को (4 वर्ष) बाकी सबकी तुलना में (7 वर्ष) उल्लेखनीय रूप से छोटा मार्ग मिलता है।" },
+
+"Liechtenstein": { dual:"सीमित — सामान्यतः पिछली नागरिकता का त्याग आवश्यक, 2008 सुधार के बाद से सीमित अपवादों सहित।",
+  descent:"लिख्टेंश्टाइन-नागरिक माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"विवाह व निवास के कई वर्षों के संयोजन के बाद सुगम प्राकृतिकीकरण संभव है, जो सामान्य प्राकृतिकीकरण से काफ़ी तेज़ है।",
+  naturalisation:"सामान्य प्राकृतिकीकरण के लिए 30 वर्ष निवास आवश्यक (20 वर्ष से कम आयु के वर्ष दोगुने गिने जाते हैं, जिससे वास्तविक समय प्रभावी रूप से घटता है) और — विशिष्ट रूप से — राष्ट्रीय अनुमोदन के अतिरिक्त स्थानीय नगरपालिका के निवासियों की स्वीकृति, कभी-कभी नगरपालिका मतदान द्वारा, आवश्यक हो सकती है। वार्षिक कोटा कुल स्वीकृत सामान्य प्राकृतिकीकरणों को सीमित करता है।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"यूरोप की सबसे प्रतिबंधात्मक प्रक्रियाओं में से एक — 30-वर्ष आधार रेखा, वार्षिक कोटा, और ऐतिहासिक रूप से व्यक्तिगत आवेदकों पर स्थानीय नगरपालिका मतदान।" },
+
+"Monaco": { dual:"प्राकृतिकीकृत नागरिकों के लिए सामान्यतः अनुमत नहीं — मोनाको प्राकृतिकीकरण द्वारा प्राप्त दोहरी राष्ट्रीयता को आधिकारिक रूप से मान्यता नहीं देता।",
+  descent:"मोनेगास्क माता-पिता की संतान को स्वतः नागरिकता (माताओं व पिताओं के बीच हस्तांतरण नियम 2017 में ही समान किए गए)।",
+  marriage:"ऐतिहासिक रूप से सीमित; मोनेगास्क नागरिक के विदेशी जीवनसाथी को स्वतः या तेज़-ट्रैक नागरिकता नहीं मिलती।",
+  naturalisation:"आवेदन दाखिल करने से पहले न्यूनतम 10 वर्ष निवास आवश्यक — पर बाद में कोई स्वतः अधिकार नहीं। निर्णय पूर्णतः सॉवरेन प्रिंस के विवेक पर डिक्री द्वारा होता है, कोई गारंटीशुदा समयरेखा या परिणाम नहीं, और ऐतिहासिक रूप से अनुदान बहुत दुर्लभ हैं।",
+  investment:"मोनाको के पास कोई निवेश-द्वारा-नागरिकता कार्यक्रम नहीं है। इसका प्रसिद्ध निवास मार्ग (आवास प्रमाण व लगभग €500,000+ मोनाको बैंक खाते में) केवल निवास व कर लाभ देता है — विवेकाधीन नागरिकता निर्णय से इसका कोई संबंध नहीं।",
+  note:"जन्म के अलावा किसी भी मार्ग से नागरिकता प्राप्त करना मोनाको में विश्व की सबसे कठिन प्रक्रियाओं में से एक है — धन निवास खरीदता है, पासपोर्ट नहीं।" },
+
+"Andorra": { dual:"लगभग सभी मामलों में प्राकृतिकीकृत नागरिकों के लिए अनुमत नहीं — पिछली नागरिकता त्याग आवश्यक।",
+  descent:"अंडोरा-नागरिक माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"अंडोरा के नागरिकों के विदेशी जीवनसाथी 3 वर्ष विवाह व निवास के संयोजन के बाद आवेदन कर सकते हैं, जो सामान्य 20-वर्षीय नियम से कहीं तेज़ है।",
+  naturalisation:"20 वर्ष वैध निवास — यूरोप में सबसे लंबी सामान्य आवश्यकताओं में से एक (अंडोरा में जन्मे व निवासी विदेशी माता-पिता के बच्चों के लिए 10 वर्ष)।",
+  investment:"अंडोरा \"निष्क्रिय निवास\" के लिए निवास-निवेश कार्यक्रम चलाता है (अंडोरा संपत्ति/संपत्ति/व्यवसाय में लगभग €400,000 से) पर यह केवल निवास देता है, और 20-वर्षीय प्राकृतिकीकरण चक्र इसके ऊपर भी लागू रहता है।",
+  note:"20-वर्षीय सामान्य बाधा व अनिवार्य त्याग इसे अधिकांश विदेशी नागरिकों के लिए यूरोप की सबसे कम व्यावहारिक नागरिकताओं में से एक बनाते हैं।" },
+
+"San Marino": { dual:"सिद्धांततः अनुमत, पर प्राकृतिकीकरण स्वयं इतना प्रतिबंधात्मक है कि अधिकांश आवेदकों के लिए यह शायद ही प्रासंगिक होता है।",
+  descent:"नागरिकता सैन मैरिनो-नागरिक माता-पिता के माध्यम से मिलती है; सैन मैरिनो के पास विशिष्ट (ऐतिहासिक रूप से लिंग-असमान, बाद में संशोधित) हस्तांतरण नियम भी हैं, जिन्हें सीधे अधिकारियों से जांचना उचित है।",
+  marriage:"सैन मैरिनो नागरिक के विदेशी जीवनसाथी विवाह व निवास के निश्चित वर्षों के बाद आवेदन कर सकते हैं — सामान्य प्राकृतिकीकरण से काफ़ी तेज़, पर फिर भी देश में वर्षों निवास आवश्यक।",
+  naturalisation:"असंबद्ध विदेशी नागरिकों के लिए सैन मैरिनो के पास कोई व्यावहारिक सामान्य-प्राकृतिकीकरण मार्ग नहीं है: अत्यंत लंबी निवास अपेक्षाएँ (सामान्यतः लगभग 30 वर्ष) और पारिवारिक संबंधों वाले लोगों के लिए बनी व्यवस्था इसे व्यवहार में बाहरी लोगों के लिए यूरोप की सबसे बंद नागरिकताओं में से एक बनाती है।",
+  investment:"कोई निवेश-द्वारा-नागरिकता कार्यक्रम मौजूद नहीं।",
+  note:"वंश या विवाह संबंध के बिना विदेशी नागरिकों के लिए व्यावहारिक रूप से बंद — यूरोप में \"वास्तव में नागरिकता नहीं देता\" के स्पष्टतम उदाहरणों में से एक।" },
+
+"Vatican City": { dual:"लागू नहीं — वेटिकन नागरिकता स्वतंत्र रूप से नहीं रखी जाती जैसे अन्य राष्ट्रीयताएं; धारक सामान्यतः दूसरी राष्ट्रीयता भी रखते हैं।",
+  descent:"वंश द्वारा कोई मार्ग नहीं है। वेटिकन नागरिकों के बच्चों को नागरिकता विरासत में नहीं मिलती।",
+  marriage:"कोई विवाह-आधारित मार्ग मौजूद नहीं।",
+  naturalisation:"कोई प्राकृतिकीकरण प्रक्रिया बिल्कुल नहीं है। वेटिकन नागरिकता केवल उन्हीं को स्वतः (ex officio) दी जाती है जो होली सी की सेवा में विशिष्ट पद या भूमिका रखते हैं — वेटिकन में निवासी कार्डिनल, होली सी के राजनयिक, स्विस गार्ड, और कुछ क्यूरिया अधिकारी व वेटिकन में रहने वाले उनके निकटतम परिवार। वह पद या रोज़गार समाप्त होते ही नागरिकता स्वतः समाप्त हो जाती है।",
+  investment:"कोई निवेश मार्ग नहीं है, और कोई हो भी नहीं सकता — नागरिकता पूर्णतः सक्रिय आधिकारिक कार्य से जुड़ी है, निवास, विवाह, धन या वंश से नहीं।",
+  note:"यूरोप में वह स्पष्टतम उदाहरण जहां किसी पारंपरिक साधन से बाहरी लोगों को नागरिकता नहीं दी जाती — यह पद-आधारित, अस्थायी है और आवेदन योग्य नहीं है।" },
+
+"Bosnia and Herzegovina": { dual:"हाँ, अनुमति है (कुछ देशों के साथ द्विपक्षीय समझौतों के अधीन)।",
+  descent:"बोस्नियाई-नागरिक माता-पिता की संतान को स्वतः; बोस्नियाई मूल के लोगों के लिए प्रवासी-अनुकूल ढांचा मौजूद।",
+  marriage:"बोस्नियाई नागरिक से 3 वर्ष विवाह (निवास सहित) से सामान्य आवश्यकता छोटी होती है।",
+  naturalisation:"8 वर्ष निरंतर वैध निवास, वैध आय स्रोत, कोई सुरक्षा चिंता नहीं; आवश्यकताएँ दोनों संस्थाओं (बोस्निया-हर्ज़ेगोविना संघ व रिपब्लिका स्रप्स्का) द्वारा अलग-अलग प्रशासित, कुछ प्रक्रियागत भिन्नता के साथ।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"दोहरी-इकाई प्रशासन (संघ/रिपब्लिका स्रप्स्का) का अर्थ है प्रक्रिया आवेदन स्थान के अनुसार भिन्न हो सकती है।" },
+
+"Serbia": { dual:"हाँ, अनुमति है।",
+  descent:"सर्बियाई-नागरिक माता-पिता की संतान को स्वतः; सर्बियाई प्रवासी व जातीय सर्ब लोगों के लिए मज़बूत सरल-प्राकृतिकीकरण प्रावधान, वर्तमान निवास की परवाह किए बिना।",
+  marriage:"सर्बियाई नागरिक से 3 वर्ष विवाह (पंजीकृत निवास सहित) से सामान्य निवास आवश्यकता पूरी किए बिना प्राकृतिकीकरण संभव।",
+  naturalisation:"सामान्य मार्ग के लिए 3 वर्ष निर्बाध, स्वीकृत निवास (व्यवहार में परमिट नवीकरण व दस्तावेज़ीकरण के कारण अधिक समय लग सकता है), वैध आय स्रोत, कोई सुरक्षा बाधा नहीं।",
+  investment:"कोई औपचारिक निवेश-द्वारा-नागरिकता कार्यक्रम नहीं, हालांकि सर्बिया निवास-निवेश/रोज़गार मार्ग चलाता है जो केवल सामान्य-समयरेखा प्राकृतिकीकरण की ओर ले जाते हैं।",
+  note:"क्षेत्रीय मानकों की तुलना में अपेक्षाकृत तेज़, असामान्य रूप से उदार प्रवासी/जातीयता प्रावधान के साथ।" },
+
+"Montenegro": { dual:"केवल सीमित परिस्थितियों में अनुमत — सामान्य प्राकृतिकीकरण के लिए अन्य नागरिकता का त्याग आवश्यक।",
+  descent:"मोंटेनेग्रिन-नागरिक माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"मोंटेनेग्रिन नागरिक से विवाह मानक एकीकरण जांच के अधीन निवास आवश्यकता घटा सकता है।",
+  naturalisation:"10 वर्ष निरंतर वैध निवास, वैध आय स्रोत, और (अधिकांश मार्गों के लिए) पिछली नागरिकता का त्याग।",
+  investment:"मोंटेनेग्रो ने पहले एक आर्थिक-नागरिकता (निवेश) कार्यक्रम चलाया था जिसमें रियल-एस्टेट निवेश व सरकारी योगदान आवश्यक था; यह लगभग 2022 में रोका/बंद किया गया और वर्तमान में नए आवेदन स्वीकार नहीं कर रहा।",
+  note:"जिस निवेश-नागरिकता कार्यक्रम ने मोंटेनेग्रो को अंतरराष्ट्रीय आवेदकों में लोकप्रिय बनाया था, वह अब नहीं चल रहा।" },
+
+"North Macedonia": { dual:"कुछ द्विपक्षीय सीमाओं के साथ अनुमत।",
+  descent:"नागरिक माता-पिता की संतान को स्वतः; बड़े मैसेडोनियाई प्रवासी समुदाय के लिए सरल प्रावधान मौजूद।",
+  marriage:"3 वर्ष विवाह व निवास सामान्य निवास आवश्यकता का विकल्प हो सकता है।",
+  naturalisation:"8 वर्ष निरंतर वैध निवास, वैध आय स्रोत, मैसेडोनियाई भाषा का ज्ञान।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"वंश व विवाह के अलावा कोई उल्लेखनीय शॉर्टकट नहीं, मानक बाल्कन-शैली प्रक्रिया।" },
+
+"Albania": { dual:"हाँ, अनुमति है।",
+  descent:"अल्बानियाई-नागरिक माता-पिता की संतान को स्वतः; प्रवासी अल्बानियाई मूल के लोगों (कोसोवो व उत्तरी मैसेडोनिया के अल्बानियाई समुदायों सहित) के लिए उदार सरल मार्ग।",
+  marriage:"अल्बानियाई नागरिक से 3 वर्ष विवाह मानक निवास आवश्यकता घटाता है।",
+  naturalisation:"5 वर्ष निरंतर वैध निवास, वैध आय स्रोत, बुनियादी अल्बानियाई भाषा योग्यता।",
+  investment:"अल्बानिया ने निवेश-द्वारा नागरिकता/निवास कानून पर चर्चा की है, पर कार्यान्वयन सीमित रहा है; 2026 तक यह व्यावहारिक रूप से एक विश्वसनीय, सक्रिय मार्ग नहीं है।",
+  note:"बाल्कन क्षेत्र में सबसे छोटी निवास आवश्यकताओं में से एक (5 वर्ष), मज़बूत प्रवासी/जातीयता प्रावधान के साथ।" },
+
+"Kosovo": { dual:"हाँ, अनुमति है।",
+  descent:"कोसोवो-नागरिक माता-पिता की संतान को स्वतः; कोसोवर अल्बानियाई प्रवासी समुदाय के आकार को देखते हुए प्रवासी-अनुकूल प्रावधान मौजूद।",
+  marriage:"कोसोवो नागरिक से विवाह व निवास मिलकर मानक आवश्यकता घटा सकते हैं।",
+  naturalisation:"9 वर्ष निरंतर वैध निवास, वैध आय स्रोत, कोसोवो की संवैधानिक व्यवस्था का बुनियादी ज्ञान।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"कोसोवो की आंशिक अंतरराष्ट्रीय मान्यता (सभी EU राज्यों — स्पेन, साइप्रस, स्लोवाकिया, रोमानिया व ग्रीस सहित — द्वारा मान्यता प्राप्त नहीं) प्राकृतिकीकरण नियमों से स्वतंत्र रूप से पासपोर्ट के यात्रा-मूल्य को जटिल बना सकती है।" },
+
+"Moldova": { dual:"हाँ, अनुमति है।",
+  descent:"मोल्दोवा-नागरिक माता-पिता की संतान को स्वतः; कई मोल्दोवावासी इसके बजाय रोमानिया के वंश/पुनर्प्राप्ति प्रावधानों के माध्यम से EU (रोमानियाई) नागरिकता प्राप्त करते हैं, क्योंकि अधिकांश जनसंख्या 1940-पूर्व रोमानियाई-नागरिक पूर्वजों के माध्यम से योग्य है।",
+  marriage:"मोल्दोवा नागरिक से 3 वर्ष विवाह सामान्य निवास आवश्यकता घटा सकता है।",
+  naturalisation:"10 वर्ष निरंतर वैध निवास, वैध आय स्रोत, मोल्दोवा (रोमानियाई) भाषा व संविधान का ज्ञान।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"व्यवहार में, EU पासपोर्ट चाहने वाले अधिकांश लोग मोल्दोवा के बजाय रोमानिया के वंश-प्रावधानों से गुज़रते हैं।" },
+
+"Ukraine": { dual:"ऐतिहासिक रूप से पिछली नागरिकता का त्याग आवश्यक था; 2025 के कानूनी सुधार ने विशिष्ट सहयोगी/साझेदार देशों के नागरिकों के लिए सशर्त दोहरी-नागरिकता मान्यता शुरू की — यह सक्रिय रूप से बदल रहा है, वर्तमान द्विपक्षीय स्थिति की पुष्टि करें।",
+  descent:"यूक्रेनी-नागरिक माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"कोई औपचारिक निवास-कमी शॉर्टकट नहीं, हालांकि जीवनसाथी के रूप में निवासी समय सामान्य गणना में जुड़ता है।",
+  naturalisation:"5 वर्ष निरंतर वैध निवास, यूक्रेनी भाषा दक्षता, संविधान का ज्ञान, वैध आय स्रोत, और (नए द्विपक्षीय दोहरी-नागरिकता अपवादों के बाहर) पिछली नागरिकता का त्याग।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"2025 के दोहरी-नागरिकता सुधार व युद्धकालीन संदर्भ के कारण नियम वास्तव में बदलते रहते हैं — पुराने केवल-त्याग मार्गदर्शन पर निर्भर होने से पहले वर्तमान स्थिति सीधे जांचें।" },
+
+"Belarus": { dual:"आधिकारिक रूप से मान्यता प्राप्त नहीं — बेलारूस अपने नागरिकों के लिए दोहरी नागरिकता औपचारिक रूप से स्वीकार नहीं करता।",
+  descent:"बेलारूसी-नागरिक माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"मानक निवास-गणना से परे कोई औपचारिक शॉर्टकट नहीं।",
+  naturalisation:"7 वर्ष निरंतर वैध निवास, बेलारूसी या रूसी भाषा का ज्ञान, वैध आय स्रोत, और दोहरी-नागरिकता मान्यता के अभाव को देखते हुए सामान्य त्याग अपेक्षा।",
+  investment:"कोई निवेश मार्ग नहीं।",
+  note:"औपचारिक दोहरी-नागरिकता मान्यता की कमी, वर्तमान राजनीतिक व यात्रा माहौल के साथ मिलकर, इसे व्यवहार में वास्तव में कठिन व कम-मांग वाला मार्ग बनाती है।" },
+
+"Russia": { dual:"अनुमति है, हालांकि प्राकृतिकीकृत नागरिकों को अपने पास मौजूद किसी अन्य नागरिकता की रूसी अधिकारियों को औपचारिक सूचना देनी होगी।",
+  descent:"रूसी-नागरिक माता-पिता की संतान को स्वतः नागरिकता।",
+  marriage:"विवाह से जुड़ा कोई औपचारिक निवास-कमी मार्ग नहीं, हालांकि यह सामान्य आवेदन को सहायता दे सकता है।",
+  naturalisation:"5 वर्ष निरंतर वैध निवास मानक है, पर कई श्रेणियों के लिए यह घटकर 1 वर्ष हो जाता है — जिसमें मूल रूसी भाषी, उच्च योग्य विशेषज्ञ, कुछ पूर्व सोवियत राज्यों के नागरिक, और रूसी-नागरिक निकट संबंधी वाले लोग शामिल हैं — साथ ही रूसी भाषा, इतिहास व कानून परीक्षा।",
+  investment:"कोई औपचारिक निवेश-से-नागरिकता कार्यक्रम नहीं।",
+  note:"1-वर्षीय तेज़-ट्रैक श्रेणियां यूरोप के अधिकांश देशों की तुलना में व्यापक हैं, पर वर्तमान प्रतिबंध व यात्रा प्रतिबंध कई राष्ट्रीयताओं के लिए प्रक्रिया के व्यावहारिक मूल्य को महत्वपूर्ण रूप से प्रभावित करते हैं।" }
+};
+
+
+const STATUS_LABEL_EN = { open: "Open route", narrow: "Narrow / conditional", closed: "Very restrictive" };
+const STATUS_LABEL_HI = { open: "खुला मार्ग", narrow: "सीमित / सशर्त", closed: "अत्यधिक प्रतिबंधित" };
+let LANG = 'en';
+
+const REGION_HI = {
+  "EU member states": "EU सदस्य देश",
+  "EEA / Schengen (non-EU)": "EEA / शेंगेन (गैर-EU)",
+  "Microstates": "सूक्ष्म-राष्ट्र",
+  "Western Balkans": "पश्चिमी बाल्कन",
+  "Eastern Europe & Caucasus fringe": "पूर्वी यूरोप व काकेशस क्षेत्र"
+};
+
+const UI = {
+  en: {
+    brandTitle: 'Every Door in <em>Europe</em>',
+    brandSub: "Every route to citizenship, country by country — descent, marriage, naturalisation, and investment — with current costs and the doors that stay shut.",
+    searchPlaceholder: "Search a country…",
+    chipAll: "All countries", chipOpen: "Open routes", chipNarrow: "Narrow / conditional", chipClosed: "Effectively closed", chipInvest: "Active investment route",
+    premiumLocked: "<b>Premium</b> unlocks step-by-step checklists, the shortlist quiz, and PDF exports for every country.",
+    upgrade: "Upgrade",
+    placeholder: "Pick a country from the list to see every way in — and whether the door is actually open.",
+    emptyList: "No countries match — try a different search or filter.",
+    dual: "Dual citizenship", waysIn: "Ways in", byDescent: "By descent", byMarriage: "By marriage", byNaturalisation: "By naturalisation", byInvestment: "By investment",
+    cost: "Approximate cost", worthKnowing: "Worth knowing", note: "Note —",
+    checklistLabel: "Step-by-step application checklist",
+    lockChecklist: "Full checklist, document list, and a downloadable PDF for",
+    unlockCountryBtn: "Unlock this country — $3",
+    goldenTitle: "Considering the investment route for",
+    goldenBody: "Investment routes involve real due diligence — fund/property selection, legal structuring, tax exposure in your home country. Get matched with a vetted immigration lawyer who specialises in this programme.",
+    goldenBtn: "Get matched with a lawyer — $79",
+    servicesLabel: "Recommended services",
+    sponsoredNote: "Sponsored — we may earn a commission if you use these services. This never affects the guidance above.",
+    quizTitle: "🧭 Compare &amp; Shortlist",
+    quizSub: "Answer four questions and get a ranked shortlist of countries that fit your situation.",
+    changelogTitle: "📋 Recently changed",
+    chg1: "Malta's citizenship-by-investment scheme ruled illegal by the EU Court of Justice and formally closed",
+    chg2: "Spain's Golden Visa fully abolished",
+    chg3: "Germany cut standard naturalisation to 5 years and now broadly allows dual citizenship",
+    chg4: "Italy sharply restricted jure sanguinis (descent) claims beyond grandparents",
+    chg5: "Latvia's investment-residency routes set to close",
+  },
+  hi: {
+    brandTitle: 'यूरोप के <em>सभी दरवाज़े</em>',
+    brandSub: "नागरिकता का हर मार्ग, देश-दर-देश — वंश, विवाह, प्राकृतिकीकरण और निवेश — वर्तमान लागत और बंद दरवाज़ों सहित।",
+    searchPlaceholder: "कोई देश खोजें…",
+    chipAll: "सभी देश", chipOpen: "खुले मार्ग", chipNarrow: "सीमित / सशर्त", chipClosed: "व्यावहारिक रूप से बंद", chipInvest: "सक्रिय निवेश मार्ग",
+    premiumLocked: "<b>प्रीमियम</b> हर देश के लिए चरण-दर-चरण चेकलिस्ट, शॉर्टलिस्ट क्विज़ और PDF अनलॉक करता है।",
+    upgrade: "अपग्रेड करें",
+    placeholder: "हर रास्ता देखने के लिए सूची से कोई देश चुनें — और जानें कि दरवाज़ा वास्तव में खुला है या नहीं।",
+    emptyList: "कोई देश मेल नहीं खाता — दूसरी खोज या फ़िल्टर आज़माएं।",
+    dual: "दोहरी नागरिकता", waysIn: "प्रवेश के रास्ते", byDescent: "वंश द्वारा", byMarriage: "विवाह द्वारा", byNaturalisation: "प्राकृतिकीकरण द्वारा", byInvestment: "निवेश द्वारा",
+    cost: "अनुमानित लागत", worthKnowing: "जानने योग्य बात", note: "नोट —",
+    checklistLabel: "चरण-दर-चरण आवेदन चेकलिस्ट",
+    lockChecklist: "पूर्ण चेकलिस्ट, दस्तावेज़ सूची और डाउनलोड योग्य PDF —",
+    unlockCountryBtn: "यह देश अनलॉक करें — $3",
+    goldenTitle: "निवेश मार्ग पर विचार कर रहे हैं",
+    goldenBody: "निवेश मार्गों में वास्तविक सावधानी बरतनी होती है — फंड/संपत्ति चयन, कानूनी संरचना, आपके देश में कर प्रभाव। इस कार्यक्रम में विशेषज्ञ, जांचे-परखे आव्रजन वकील से मिलें।",
+    goldenBtn: "वकील से जुड़ें — $79",
+    servicesLabel: "अनुशंसित सेवाएं",
+    sponsoredNote: "प्रायोजित — इन सेवाओं का उपयोग करने पर हमें कमीशन मिल सकता है। इससे ऊपर दी गई जानकारी प्रभावित नहीं होती।",
+    quizTitle: "🧭 तुलना करें और शॉर्टलिस्ट बनाएं",
+    quizSub: "चार प्रश्नों के उत्तर दें और अपनी स्थिति के अनुसार देशों की क्रमबद्ध शॉर्टलिस्ट पाएं।",
+    changelogTitle: "📋 हाल में बदलाव",
+    chg1: "माल्टा की निवेश-द्वारा-नागरिकता योजना को यूरोपीय संघ न्यायालय ने अवैध घोषित कर औपचारिक रूप से बंद किया",
+    chg2: "स्पेन का गोल्डन वीज़ा पूर्णतः समाप्त",
+    chg3: "जर्मनी ने मानक प्राकृतिकीकरण घटाकर 5 वर्ष किया और अब व्यापक रूप से दोहरी नागरिकता की अनुमति देता है",
+    chg4: "इटली ने दादा-दादी से आगे के jure sanguinis (वंश) दावों को सख्ती से सीमित किया",
+    chg5: "लातविया के निवेश-निवास मार्ग बंद होने वाले हैं",
+  }
+};
+function t(key) { return (UI[LANG] && UI[LANG][key]) || UI.en[key]; }
+// cf(): country field, in current language, falling back to English if no translation exists
+function cf(c, field) {
+  if (LANG === 'hi' && HI_DATA[c.name] && HI_DATA[c.name][field]) return HI_DATA[c.name][field];
+  return c[field];
+}
+function regionLabel(region) { return LANG === 'hi' ? (REGION_HI[region] || region) : region; }
+function statusLabel(status) { return (LANG === 'hi' ? STATUS_LABEL_HI : STATUS_LABEL_EN)[status]; }
+
+function setLang(lang) {
+  LANG = lang;
+  document.getElementById('langEn').classList.toggle('active', lang === 'en');
+  document.getElementById('langHi').classList.toggle('active', lang === 'hi');
+  document.getElementById('brandTitle').innerHTML = t('brandTitle');
+  document.getElementById('brandSub').textContent = t('brandSub');
+  document.getElementById('search').placeholder = t('searchPlaceholder');
+  document.getElementById('placeholderText').textContent = t('placeholder');
+  document.getElementById('quizTitle').innerHTML = t('quizTitle');
+  document.getElementById('quizSub').textContent = t('quizSub');
+  document.getElementById('changelogTitle').textContent = t('changelogTitle');
+  ['chg1','chg2','chg3','chg4','chg5'].forEach(k => { const el = document.getElementById(k); if (el) el.textContent = t(k); });
+  if (!isFullyUnlocked() && getUnlockedCountries().length === 0) {
+    document.getElementById('premiumBannerText').innerHTML = t('premiumLocked');
+  }
+  document.getElementById('upgradeBtn').textContent = isFullyUnlocked() ? (LANG==='hi'?'प्रबंधित करें':'Manage') : t('upgrade');
+  renderFilters();
+  renderList();
+  renderDetail();
+  renderQuiz();
+}
+
+function chip(label, key, value) {
+  return `<button class="chip" data-filter="${key}" data-value="${value}">${label}</button>`;
+}
+
+const filtersEl = document.getElementById('filters');
+let activeFilter = { key: 'status', value: 'all' };
+let searchTerm = '';
+let selected = null;
+
+function renderFilters() {
+  filtersEl.innerHTML = [
+    chip(t('chipAll'),"status","all"),
+    chip(t('chipOpen'),"status","open"),
+    chip(t('chipNarrow'),"status","narrow"),
+    chip(t('chipClosed'),"status","closed"),
+    chip(t('chipInvest'),"invest","yes"),
+  ].join('');
+  filtersEl.querySelectorAll('.chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      filtersEl.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = { key: btn.dataset.filter, value: btn.dataset.value };
+      renderList();
+    });
+  });
+  const idx = { all:0, open:1, narrow:2, closed:3 }[activeFilter.key==='invest' ? 'invest' : activeFilter.value];
+  const toActivate = activeFilter.key === 'invest' ? filtersEl.children[4] : filtersEl.children[idx || 0];
+  if (toActivate) toActivate.classList.add('active');
+}
+renderFilters();
+
+function hasInvestment(c) {
+  const t = c.investment.toLowerCase();
+  if (t.includes('no investment') || t.includes('not available') || t.includes('closed') || t.includes('does not exist') || t.includes('no citizenship-by-investment') || t.includes('no formal')) return false;
+  return t.includes('still') || t.includes('remains') || t.includes('active') || t.includes('from €') || t.includes('runs') || t.includes('grants');
+}
+
+function matches(c) {
+  if (searchTerm && !c.name.toLowerCase().includes(searchTerm.toLowerCase())) return false;
+  if (activeFilter.key === 'status' && activeFilter.value !== 'all' && c.status !== activeFilter.value) return false;
+  if (activeFilter.key === 'invest' && activeFilter.value === 'yes' && !hasInvestment(c)) return false;
+  return true;
+}
+
+function renderList() {
+  const listPane = document.getElementById('listPane');
+  const byRegion = {};
+  REGION_ORDER.forEach(r => byRegion[r] = []);
+  DATA.filter(matches).forEach(c => byRegion[c.region].push(c));
+
+  let html = '';
+  let any = false;
+  REGION_ORDER.forEach(region => {
+    const items = byRegion[region];
+    if (!items.length) return;
+    any = true;
+    html += `<div class="region-group"><div class="region-title">${regionLabel(region)}</div>`;
+    items.forEach(c => {
+      const sel = selected && selected.name === c.name ? 'selected' : '';
+      html += `<button class="country-row ${sel}" data-name="${c.name}">
+        <span class="flag">${c.flag}</span>
+        <span class="name">${c.name}</span>
+        <span class="dot ${c.status}"></span>
+      </button>`;
+    });
+    html += `</div>`;
+  });
+  if (!any) html = `<div class="empty-list">${t('emptyList')}</div>`;
+  listPane.innerHTML = html;
+
+  listPane.querySelectorAll('.country-row').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const c = DATA.find(x => x.name === btn.dataset.name);
+      selected = c;
+      renderList();
+      renderDetail();
+      document.getElementById('detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+
+function renderDetail() {
+  const el = document.getElementById('detail');
+  refreshAds();
+  if (!selected) {
+    el.innerHTML = `<div class="detail-placeholder"><div class="big-flag">🛂</div><div>${t('placeholder')}</div></div>`;
+    return;
+  }
+  const c = selected;
+  const statusClass = c.status === 'open' ? 'status-open' : c.status === 'narrow' ? 'status-narrow' : 'status-closed';
+
+  el.innerHTML = `
+    <div class="d-head">
+      <div>
+        <div class="d-title">${c.flag} ${c.name}</div>
+        <div class="d-tags">
+          <span class="stamp ${statusClass}">${statusLabel(c.status)}</span>
+          <span class="stamp neutral">${regionLabel(c.region)}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-section">
+      <div class="d-label">${t('dual')}</div>
+      <div class="d-body">${cf(c,'dual')}</div>
+    </div>
+
+    <div class="d-section">
+      <div class="d-label">${t('waysIn')}</div>
+      <div class="d-grid two">
+        <div class="route-card">
+          <div class="r-title">🩸 ${t('byDescent')}</div>
+          <div class="r-body">${cf(c,'descent')}</div>
+        </div>
+        <div class="route-card">
+          <div class="r-title">💍 ${t('byMarriage')}</div>
+          <div class="r-body">${cf(c,'marriage')}</div>
+        </div>
+        <div class="route-card">
+          <div class="r-title">🛂 ${t('byNaturalisation')}</div>
+          <div class="r-body">${cf(c,'naturalisation')}</div>
+        </div>
+        <div class="route-card">
+          <div class="r-title">💶 ${t('byInvestment')}</div>
+          <div class="r-body">${cf(c,'investment')}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-section">
+      <div class="d-label">${t('cost')}</div>
+      <div class="route-card">
+        ${c.cost.map(([k,v]) => `<div class="cost-line"><span class="k">${k}</span><span class="v">${v}</span></div>`).join('')}
+      </div>
+    </div>
+
+    <div class="d-section">
+      <div class="d-label">${t('worthKnowing')}</div>
+      <div class="note-box"><b>${t('note')}</b> ${cf(c,'note')}</div>
+    </div>
+
+    ${adsShouldShow() ? `<div class="d-section">${adSlotHtml('adSlotDetail')}</div>` : ''}
+
+    ${hasInvestment(c) ? `
+    <div class="d-section">
+      <div class="route-card" style="border-color:var(--bronze);">
+        <div class="r-title">💼 ${t('goldenTitle')} ${c.name}?</div>
+        <div class="r-body">${t('goldenBody')}</div>
+        <button class="upgrade-btn" style="margin-top:10px;" onclick="startGoldenVisaLead('${c.name.replace(/'/g,"\\'")}')">${t('goldenBtn')}</button>
+      </div>
+    </div>` : ''}
+
+    <div class="d-section">
+      <div class="d-label">${t('servicesLabel')}</div>
+      <div class="d-grid two">
+        ${AFFILIATE_LINKS.map(a => `
+          <a class="route-card" style="text-decoration:none;color:inherit;display:block;" href="${a.url}" target="_blank" rel="noopener sponsored">
+            <div class="r-title">${a.icon} ${a.name}</div>
+            <div class="r-body">${a.desc}</div>
+          </a>`).join('')}
+      </div>
+      <div style="font-size:11px;color:var(--slate);margin-top:8px;">${t('sponsoredNote')}</div>
+    </div>
+
+    <div class="d-section">
+      <div class="d-label">${t('checklistLabel')}</div>
+      ${isUnlocked(c.name) ? `
+        <div class="route-card">
+          ${buildChecklist(c).map(step => `<div class="cost-line"><span class="k">${step}</span></div>`).join('')}
+        </div>
+      ` : `
+        <div class="lock-wrap">
+          <div class="route-card locked-blur">
+            <div class="cost-line"><span class="k">Confirm which status you'd apply under and gather ID, birth/marriage certificates, and proof of address</span></div>
+            <div class="cost-line"><span class="k">Book a language/civics test slot where required, and start early — many have long waitlists</span></div>
+            <div class="cost-line"><span class="k">Assemble proof of income/accommodation and get documents apostilled or sworn-translated</span></div>
+            <div class="cost-line"><span class="k">File the application, track processing time, and prepare for the interview or ceremony</span></div>
+          </div>
+          <div class="lock-overlay">
+            <div class="lock-cta">🔒 ${t('lockChecklist')} ${c.name}</div>
+            <button class="upgrade-btn" onclick="openModal('${c.name.replace(/'/g,"\\'")}')">${t('unlockCountryBtn')}</button>
+          </div>
+        </div>
+      `}
+    </div>
+  `;
+  refreshAds();
+}
+
+function buildChecklist(c) {
+  return [
+    `Confirm eligibility: descent, marriage, naturalisation, or investment — see routes above for ${c.name}`,
+    `Gather core documents: passport, birth certificate, marriage certificate (if relevant), police clearance, proof of address`,
+    `Get documents apostilled/legalised and officially translated into the local language`,
+    `Meet the residency clock or investment threshold, keeping renewal/permit paperwork current throughout`,
+    `Book and pass any required language or civics exam well ahead of your target filing date`,
+    `Submit the naturalisation/registration application with the correct fee (see cost table above)`,
+    `Track processing status and respond promptly to any requests for further evidence`,
+    `Attend the interview, oath, or ceremony, then apply for your passport once citizenship is confirmed`,
+  ];
+}
+
+/* ---------------- Premium: two tiers ----------------
+   Tier A ("pack4"): pick any 4 countries, $3 one-time
+   Tier B ("all"):   every country unlocked, $5/month
+   ------------------------------------------------------ */
+function getUnlockedCountries() {
+  try { return JSON.parse(localStorage.getItem('unlocked_countries') || '[]'); }
+  catch(e) { return []; }
+}
+function isFullyUnlocked() {
+  try { return localStorage.getItem('premium_all') === '1'; } catch(e) { return false; }
+}
+// Pass a country name to check that specific country; call with no args to check "any access at all"
+function isUnlocked(countryName) {
+  if (isFullyUnlocked()) return true;
+  if (!countryName) return false;
+  return getUnlockedCountries().includes(countryName);
+}
+function setFullyUnlocked() {
+  try { localStorage.setItem('premium_all','1'); } catch(e) {}
+  refreshBanner();
+  renderDetail();
+  renderQuiz();
+}
+function addUnlockedCountries(names) {
+  const current = new Set(getUnlockedCountries());
+  names.forEach(n => current.add(n));
+  try { localStorage.setItem('unlocked_countries', JSON.stringify([...current])); } catch(e) {}
+  refreshBanner();
+  renderDetail();
+}
+function refreshBanner() {
+  const b = document.getElementById('premiumBanner');
+  if (isFullyUnlocked()) {
+    b.classList.add('unlocked');
+    b.querySelector('span').innerHTML = '<b>All-access active</b> — every country, checklist, and the quiz unlocked.';
+    b.querySelector('button').textContent = 'Manage';
+  } else {
+    const n = getUnlockedCountries().length;
+    if (n > 0) {
+      b.querySelector('span').innerHTML = `<b>${n} ${n===1?'country':'countries'} unlocked</b> — upgrade to All-Access for every country + the shortlist quiz.`;
+    }
+  }
+}
+
+// ============================================================
+// PAYMENT CONFIG — fill these in once you deploy your own backend.
+// STRIPE_CHECKOUT_ENDPOINT: URL of the serverless function from
+// create-checkout-session.js (e.g. https://yourapp.vercel.app/api/create-checkout-session)
+// If left as null, the app falls back to a clearly-labelled demo unlock.
+// ============================================================
+const STRIPE_CHECKOUT_ENDPOINT = null; // e.g. "https://your-domain.com/api/create-checkout-session"
+
+let pack4Selection = [];
+
+async function startCheckout(plan) {
+  let returnUrl = window.location.href.split('?')[0];
+  if (plan === 'pack4') {
+    if (pack4Selection.length !== 4) { alert('Pick exactly 4 countries first.'); return; }
+    returnUrl += '?premium=success&countries=' + encodeURIComponent(pack4Selection.join('|'));
+  } else {
+    returnUrl += '?premium=success&tier=all';
+  }
+
+  if (!STRIPE_CHECKOUT_ENDPOINT) { demoUnlock(plan); return; }
+  try {
+    const res = await fetch(STRIPE_CHECKOUT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ plan, returnUrl })
+    });
+    const data = await res.json();
+    if (data.url) { window.location.href = data.url; }
+    else { alert('Checkout failed to start. Check your backend logs.'); }
+  } catch (e) {
+    alert('Could not reach the payment server. Is STRIPE_CHECKOUT_ENDPOINT deployed and reachable?');
+  }
+}
+
+function toggleCountryPick(name) {
+  const i = pack4Selection.indexOf(name);
+  if (i >= 0) pack4Selection.splice(i,1);
+  else if (pack4Selection.length < 4) pack4Selection.push(name);
+  renderPickerList();
+}
+function renderPickerList() {
+  const el = document.getElementById('pack4Picker');
+  if (!el) return;
+  el.innerHTML = DATA.map(c => `<button class="quiz-opt ${pack4Selection.includes(c.name)?'picked':''}" onclick="toggleCountryPick('${c.name.replace(/'/g,"\\'")}')">${c.flag} ${c.name}</button>`).join('');
+  const btn = document.getElementById('pack4Btn');
+  if (btn) btn.textContent = `Unlock these ${pack4Selection.length}/4 — $3`;
+}
+
+function openModal(preselectCountry) {
+  pack4Selection = preselectCountry ? [preselectCountry] : [];
+  document.getElementById('modalRoot').innerHTML = `
+    <div class="modal-back" onclick="if(event.target===this) closeModal()">
+      <div class="modal-card">
+        <div class="modal-title">Unlock the guide</div>
+        <div class="modal-sub">Pick a plan — start small with a few countries, or get everything.</div>
+
+        <div class="plan-row"><span class="p-name">Pick any 4 countries</span><span class="p-price">$3 one-time</span></div>
+        <div class="quiz-opts" id="pack4Picker" style="margin-bottom:10px;"></div>
+        <button class="modal-btn" id="pack4Btn" onclick="startCheckout('pack4')">Unlock these 0/4 — $3</button>
+
+        <div style="height:16px;"></div>
+
+        <div class="plan-row"><span class="p-name">All-Access</span><span class="p-price">$5 / month</span></div>
+        <button class="modal-btn" style="background:var(--bronze);color:#1C1400;" onclick="startCheckout('all')">Get All-Access — $5/mo</button>
+
+        <button class="modal-close" onclick="closeModal()">Not now</button>
+        <div style="font-size:11px;color:var(--slate);margin-top:10px;line-height:1.5;">${STRIPE_CHECKOUT_ENDPOINT ? 'You will be redirected to Stripe\'s secure checkout.' : 'Demo mode — no STRIPE_CHECKOUT_ENDPOINT configured yet, so this simulates an unlock. See LAUNCH_CHECKLIST.md.'}</div>
+      </div>
+    </div>`;
+  renderPickerList();
+}
+function closeModal() { document.getElementById('modalRoot').innerHTML = ''; }
+function demoUnlock(plan) {
+  if (plan === 'pack4') { if (pack4Selection.length !== 4) { alert('Pick exactly 4 countries first.'); return; } addUnlockedCountries(pack4Selection); }
+  else { setFullyUnlocked(); }
+  closeModal();
+}
+
+// If Stripe redirected back here after a successful payment.
+// Your webhook (see create-checkout-session.js) should also record the
+// purchase server-side so the unlock survives across devices.
+(function checkReturnFromStripe(){
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('premium') === 'success') {
+    if (params.get('tier') === 'all') { setFullyUnlocked(); }
+    const countriesParam = params.get('countries');
+    if (countriesParam) { addUnlockedCountries(decodeURIComponent(countriesParam).split('|')); }
+  }
+})();
+document.getElementById('upgradeBtn').addEventListener('click', () => openModal());
+refreshBanner();
+
+
+/* ---------------- Shortlist quiz ---------------- */
+const QUIZ_EN = [
+  { key:'budget', label:'What can you realistically put toward an investment route (if any)?',
+    opts:[ {v:'none',l:'€0 — no investment'}, {v:'low',l:'Up to €250,000'}, {v:'mid',l:'€250,000–€600,000'}, {v:'high',l:'€600,000+'} ] },
+  { key:'timeline', label:'How soon do you want citizenship?', opts:[ {v:'fast',l:'2–5 years'}, {v:'medium',l:'5–8 years'}, {v:'slow',l:"8+ years is fine"} ] },
+  { key:'dual', label:'Do you need to keep your current citizenship?', opts:[ {v:'yes',l:'Yes, must keep it'}, {v:'no',l:"Doesn't matter"} ] },
+  { key:'ancestry', label:'Do you have a parent or grandparent born in Europe?', opts:[ {v:'yes',l:'Yes'}, {v:'no',l:'No'} ] },
+];
+const QUIZ_HI = [
+  { key:'budget', label:'निवेश मार्ग के लिए आप वास्तव में कितना खर्च कर सकते हैं (यदि कोई हो)?',
+    opts:[ {v:'none',l:'€0 — कोई निवेश नहीं'}, {v:'low',l:'€250,000 तक'}, {v:'mid',l:'€250,000–€600,000'}, {v:'high',l:'€600,000+'} ] },
+  { key:'timeline', label:'आपको कितनी जल्दी नागरिकता चाहिए?', opts:[ {v:'fast',l:'2–5 वर्ष'}, {v:'medium',l:'5–8 वर्ष'}, {v:'slow',l:"8+ वर्ष भी ठीक है"} ] },
+  { key:'dual', label:'क्या आपको अपनी वर्तमान नागरिकता बनाए रखनी है?', opts:[ {v:'yes',l:'हाँ, ज़रूर रखनी है'}, {v:'no',l:"कोई फ़र्क़ नहीं पड़ता"} ] },
+  { key:'ancestry', label:'क्या आपके माता-पिता या दादा-दादी में से कोई यूरोप में जन्मे हैं?', opts:[ {v:'yes',l:'हाँ'}, {v:'no',l:'नहीं'} ] },
+];
+function QUIZ_LIST() { return LANG === 'hi' ? QUIZ_HI : QUIZ_EN; }
+let quizAnswers = {};
+
+function renderQuiz() {
+  const body = document.getElementById('quizBody');
+  const QUIZ = QUIZ_LIST();
+  if (!isUnlocked()) {
+    body.innerHTML = `<div class="lock-wrap">
+      <div class="quiz-card locked-blur">${QUIZ.map(q => `<div class="quiz-q"><div class="q-label">${q.label}</div><div class="quiz-opts">${q.opts.map(o=>`<span class="quiz-opt">${o.l}</span>`).join('')}</div></div>`).join('')}</div>
+      <div class="lock-overlay"><div class="lock-cta">🔒 ${LANG==='hi' ? 'शॉर्टलिस्ट क्विज़ एक प्रीमियम सुविधा है' : 'The shortlist quiz is a Premium feature'}</div><button class="upgrade-btn" onclick="openModal()">${LANG==='hi'?'प्रीमियम अनलॉक करें':'Unlock Premium'}</button></div>
+    </div>`;
+    return;
+  }
+  body.innerHTML = `<div class="quiz-card">${QUIZ.map(q => `
+    <div class="quiz-q">
+      <div class="q-label">${q.label}</div>
+      <div class="quiz-opts">${q.opts.map(o => `<button class="quiz-opt ${quizAnswers[q.key]===o.v?'picked':''}" data-key="${q.key}" data-val="${o.v}">${o.l}</button>`).join('')}</div>
+    </div>`).join('')}
+    <div class="quiz-result" id="quizResult"></div>
+  </div>`;
+  body.querySelectorAll('.quiz-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      quizAnswers[btn.dataset.key] = btn.dataset.val;
+      renderQuiz();
+      computeShortlist();
+    });
+  });
+  if (Object.keys(quizAnswers).length === QUIZ.length) computeShortlist();
+}
+
+function computeShortlist() {
+  const a = quizAnswers;
+  const QUIZ = QUIZ_LIST();
+  if (Object.keys(a).length < QUIZ.length) return;
+  const WHY = LANG === 'hi'
+    ? { dual:'दोहरी नागरिकता की अनुमति देता है', ancestry:'मज़बूत वंश-मार्ग', fast:'खुला, व्यवहार्य मार्ग', invest:'सक्रिय निवेश मार्ग', basic:'आपके बुनियादी मानदंडों को पूरा करता है' }
+    : { dual:'allows dual citizenship', ancestry:'strong ancestry route', fast:'open, workable route', invest:'active investment route', basic:'meets your basic filters' };
+  const scored = DATA.map(c => {
+    let score = 0; let why = [];
+    if (a.dual === 'yes' && c.dual.toLowerCase().startsWith('yes')) { score += 3; why.push(WHY.dual); }
+    if (a.dual === 'yes' && c.dual.toLowerCase().startsWith('no')) { score -= 4; }
+    if (a.ancestry === 'yes' && /grandparent|no generation limit|no residency|descent|diaspora/i.test(c.descent)) { score += 3; why.push(WHY.ancestry); }
+    if (a.timeline === 'fast' && c.status === 'open') { score += 2; why.push(WHY.fast); }
+    if (a.timeline === 'slow') { score += 1; }
+    if (a.budget !== 'none' && hasInvestment(c)) { score += 2; why.push(WHY.invest); }
+    if (c.status === 'closed') score -= 2;
+    return { c, score, why: why.length ? why.join(', ') : WHY.basic };
+  }).sort((x,y) => y.score - x.score).slice(0,5);
+
+  document.getElementById('quizResult').innerHTML = `<div class="d-label" style="margin-top:14px;">${LANG==='hi'?'आपकी शॉर्टलिस्ट':'Your shortlist'}</div>` +
+    scored.map((s,i) => `<div class="rank-row"><span class="rank-num">${i+1}</span><span class="rank-name">${s.c.flag} ${s.c.name}</span><span class="rank-why">${s.why}</span></div>`).join('');
+}
+renderQuiz();
+
+document.getElementById('search').addEventListener('input', (e) => {
+  searchTerm = e.target.value.trim();
+  renderList();
+});
+
+renderList();
+renderDetail();
+</script>
+</body>
+</html>
